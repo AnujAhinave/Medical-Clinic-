@@ -10,43 +10,78 @@
         .gradient-text { background: linear-gradient(90deg, #be185d, #6366f1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .hover-scale { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
         .hover-scale:hover { transform: translateY(-5px); }
+        /* Add this to your existing <style> block */
+#mobile-menu {
+    display: none;
+    transform-origin: top right;
+    transition: all 0.2s ease-out;
+    opacity: 0;
+    transform: scale(0.95) translateY(-10px);
+}
+#mobile-menu.active {
+    display: block;
+    opacity: 1;
+    transform: scale(1) translateY(0);
+}
     </style>
 </head>
 <body class="bg-slate-50 font-sans text-slate-900 antialiased">
 
     <nav class="bg-white/95 backdrop-blur-md border-b border-slate-100 sticky top-0 z-50 shadow-sm">
-        <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <a href="index.html" class="flex items-center gap-3">
-                    <div class="w-10 h-10 bg-pink-600 rounded-xl flex items-center justify-center text-white shadow-lg shadow-pink-200">
-                        <i class="fas fa-hand-holding-medical text-xl"></i>
-                    </div>
-                    <div class="flex flex-col">
-                        <span class="font-black text-xl tracking-tighter uppercase text-slate-900 leading-none">
-                            Dr. Reshma's <span class="text-pink-600 italic">Clinic</span>
-                        </span>
-                        <span class="text-[9px] font-bold tracking-[0.3em] text-slate-400 uppercase mt-1">Ambarnath East</span>
-                    </div>
-                </a>
-            </div>
+    <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between relative">
+        <div class="flex items-center gap-3">
+            <a href="index.html" class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-pink-600 rounded-xl flex items-center justify-center text-white shadow-lg shadow-pink-200">
+                    <i class="fas fa-hand-holding-medical text-xl"></i>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-black text-xl tracking-tighter uppercase text-slate-900 leading-none">
+                        Dr. Reshma's <span class="text-pink-600 italic">Clinic</span>
+                    </span>
+                    <span class="text-[9px] font-bold tracking-[0.3em] text-slate-400 uppercase mt-1">Ambarnath East</span>
+                </div>
+            </a>
+        </div>
 
-            <div class="hidden lg:flex items-center gap-8 text-[11px] font-black uppercase tracking-widest text-slate-500">
-                <a href="index.html" class="hover:text-pink-600 transition-colors">Home</a>
-                <a href="about.html" class="hover:text-pink-600 transition-colors">About</a>
-                <a href="treatments.html" class="hover:text-pink-600 transition-colors">Treatments</a>
-                <a href="results.html" class="text-pink-600 border-b-2 border-pink-600 pb-1">Results</a>
-            </div>
+        <div class="hidden lg:flex items-center gap-8 text-[11px] font-black uppercase tracking-widest text-slate-500">
+            <a href="index.html" class="hover:text-pink-600 transition-colors">Home</a>
+            <a href="about.html" class="hover:text-pink-600 transition-colors">About</a>
+            <a href="treatments.html" class="hover:text-pink-600 transition-colors">Treatments</a>
+            <a href="results.html" class="hover:text-pink-600 transition-colors">Results</a>
+        </div>
 
-            <div class="flex items-center gap-4">
-                <a href="tel:9969590101" class="hidden sm:flex items-center gap-2 border-2 border-pink-600 text-pink-600 px-6 py-2.5 rounded-full font-bold hover:bg-pink-50 transition text-sm">
-                    <i class="fas fa-phone-alt"></i> Call Now
+        <div class="flex items-center gap-3">
+            <a href="index.html#booking" class="bg-pink-600 text-white px-5 py-2.5 rounded-full font-bold hover:bg-pink-700 shadow-lg shadow-pink-200 text-xs transition-all">
+                Book Now
+            </a>
+            
+            <button id="menu-btn" class="lg:hidden text-slate-900 focus:outline-none p-2 bg-slate-50 rounded-lg border border-slate-200">
+                <i class="fas fa-bars text-xl" id="menu-icon"></i>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="absolute top-20 right-6 w-48 bg-white border border-slate-100 rounded-2xl shadow-2xl p-2 z-[60]">
+            <div class="flex flex-col text-[11px] font-black uppercase tracking-widest text-slate-600">
+                <a href="index.html" class="hover:bg-pink-50 hover:text-pink-600 p-3 rounded-xl transition-colors flex items-center gap-3">
+                    <i class="fas fa-home w-4"></i> Home
                 </a>
-                <a href="index.html?scroll=booking" class="bg-pink-600 text-white px-7 py-3 rounded-full font-bold hover:bg-pink-700 shadow-lg shadow-pink-200 text-sm transition-all">
-                    Book Now
+                <a href="about.html" class="hover:bg-pink-50 hover:text-pink-600 p-3 rounded-xl flex items-center gap-3">
+                    <i class="fas fa-user w-4"></i> About
+                </a>
+                <a href="treatments.html" class="hover:bg-pink-50 hover:text-pink-600 p-3 rounded-xl transition-colors flex items-center gap-3">
+                    <i class="fas fa-stethoscope w-4"></i> Treatments
+                </a>
+                <a href="results.html" class="hover:bg-pink-50 hover:text-pink-600 p-3 rounded-xl transition-colors flex items-center gap-3">
+                    <i class="fas fa-star w-4"></i> Results
+                </a>
+                <div class="h-[1px] bg-slate-100 my-1"></div>
+                <a href="tel:9969590101" class="text-pink-600 p-3 flex items-center gap-3">
+                    <i class="fas fa-phone-alt w-4"></i> Call
                 </a>
             </div>
         </div>
-    </nav>
+    </div>
+</nav>
 
     <section class="py-12 bg-white border-b border-slate-100">
         <div class="max-w-5xl mx-auto px-6 flex flex-col md:flex-row items-center gap-8 text-center md:text-left">
@@ -154,6 +189,25 @@
             </p>
         </div>
     </footer>
+<script>
+    const btn = document.getElementById('menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    const icon = document.getElementById('menu-icon');
 
+    btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menu.classList.toggle('active');
+        icon.classList.toggle('fa-bars');
+        icon.classList.toggle('fa-times');
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!menu.contains(e.target) && !btn.contains(e.target)) {
+            menu.classList.remove('active');
+            icon.classList.add('fa-bars');
+            icon.classList.remove('fa-times');
+        }
+    });
+</script>
 </body>
 </html>
