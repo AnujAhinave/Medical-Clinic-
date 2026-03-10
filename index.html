@@ -271,33 +271,73 @@
     </section>
 
     <section id="booking" class="py-32 bg-slate-900 scroll-mt-20">
-        <div class="max-w-3xl mx-auto px-6">
-            <div id="booking-container" class="bg-white/5 backdrop-blur-xl rounded-[3.5rem] border border-white/10 p-12">
-                <div id="booking-form">
-                    <h3 class="text-4xl font-black text-white text-center uppercase mb-12">Request Appointment</h3>
-                    <form onsubmit="handleBooking(event)" class="grid grid-cols-1 gap-8">
-                        <input type="text" placeholder="Full Name" required class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white focus:border-pink-500 outline-none transition">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                            <input type="tel" placeholder="Mobile Number" required class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white focus:border-pink-500 outline-none transition">
-                            <select class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white focus:border-pink-500 outline-none appearance-none">
-                                <option class="text-slate-900">Laser Treatment</option>
-                                <option class="text-slate-900">Skin Consultation</option>
-                                <option class="text-slate-900">Hair Therapy</option>
+    <div class="max-w-3xl mx-auto px-6">
+        <div id="booking-container" class="bg-white/5 backdrop-blur-xl rounded-[3.5rem] border border-white/10 p-12 shadow-2xl">
+            
+            <div id="booking-form-wrapper">
+                <h3 class="text-4xl font-black text-white text-center uppercase mb-12 tracking-tighter">
+                    Request <span class="text-pink-500 italic">Appointment</span>
+                </h3>
+                
+                <form id="clinic-booking-form" class="grid grid-cols-1 gap-8">
+                    <div class="relative group">
+                        <i class="fas fa-user absolute left-6 top-1/2 -translate-y-1/2 text-pink-500/50"></i>
+                        <input type="text" name="firstName" placeholder="FULL NAME" required 
+                               class="w-full bg-white/10 border border-white/10 rounded-2xl pl-14 pr-6 py-5 text-white focus:border-pink-500 outline-none transition uppercase text-[10px] font-black tracking-widest placeholder:text-slate-500">
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="relative">
+                            <i class="fas fa-phone absolute left-6 top-1/2 -translate-y-1/2 text-pink-500/50"></i>
+                            <input type="tel" name="phone" placeholder="MOBILE NUMBER" required 
+                                   class="w-full bg-white/10 border border-white/10 rounded-2xl pl-14 pr-6 py-5 text-white focus:border-pink-500 outline-none transition uppercase text-[10px] font-black tracking-widest">
+                        </div>
+                        
+                        <div class="relative">
+                            <i class="fas fa-envelope absolute left-6 top-1/2 -translate-y-1/2 text-pink-500/50"></i>
+                            <input type="email" name="email" placeholder="EMAIL ADDRESS" required 
+                                   class="w-full bg-white/10 border border-white/10 rounded-2xl pl-14 pr-6 py-5 text-white focus:border-pink-500 outline-none transition uppercase text-[10px] font-black tracking-widest">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="relative">
+                            <i class="fas fa-calendar absolute left-6 top-1/2 -translate-y-1/2 text-pink-500/50"></i>
+                            <select id="doctor-date" name="selected_date" required 
+                                    class="w-full bg-white/10 border border-white/10 rounded-2xl pl-14 pr-6 py-5 text-white focus:border-pink-500 outline-none appearance-none uppercase text-[10px] font-black tracking-widest">
+                                <option value="" class="bg-slate-900 text-white">CHOOSE DATE</option>
                             </select>
                         </div>
-                        <button type="submit" class="w-full bg-pink-600 text-white font-black py-5 rounded-2xl hover:bg-pink-700 transition uppercase mt-6 shadow-xl shadow-pink-900/40">Confirm Request</button>
-                    </form>
-                </div>
-                <div id="thank-you-page" class="text-center py-10">
-                    <div class="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center text-white text-4xl mx-auto mb-8">
-                        <i class="fas fa-check"></i>
+
+                        <div class="relative">
+                            <i class="fas fa-clock absolute left-6 top-1/2 -translate-y-1/2 text-pink-500/50"></i>
+                            <select id="doctor-time" name="selected_time" disabled required 
+                                    class="w-full bg-white/10 border border-white/10 rounded-2xl pl-14 pr-6 py-5 text-white focus:border-pink-500 outline-none appearance-none disabled:opacity-30 uppercase text-[10px] font-black tracking-widest">
+                                <option value="" class="bg-slate-900 text-white">SELECT TIME</option>
+                            </select>
+                        </div>
                     </div>
-                    <h3 class="text-4xl font-black text-white uppercase">Request Sent!</h3>
-                    <p class="text-slate-400 mt-6 text-lg">Dr. Reshma's team will call you within 2-4 hours to confirm your slot.</p>
+
+                    <textarea name="description" placeholder="BRIEFLY DESCRIBE YOUR CONCERN..." required rows="3"
+                              class="w-full bg-white/10 border border-white/10 rounded-2xl px-6 py-5 text-white focus:border-pink-500 outline-none transition uppercase text-[10px] font-black tracking-widest placeholder:text-slate-500"></textarea>
+
+                    <button type="submit" id="submit-btn" 
+                            class="w-full bg-pink-600 text-white font-black py-6 rounded-2xl hover:bg-white hover:text-pink-600 transition-all duration-500 uppercase mt-6 shadow-2xl shadow-pink-900/40 tracking-[0.4em] text-[10px]">
+                        Confirm Appointment
+                    </button>
+                </form>
+            </div>
+
+            <div id="thank-you-page" class="hidden text-center py-10">
+                <div class="w-24 h-24 bg-pink-500 rounded-full flex items-center justify-center text-white text-5xl mx-auto mb-8 animate-bounce shadow-xl shadow-pink-500/20">
+                    <i class="fas fa-check"></i>
                 </div>
+                <h3 class="text-4xl font-black text-white uppercase tracking-tighter">Slot Reserved</h3>
+                <p class="text-slate-400 mt-6 text-sm tracking-widest font-bold">DR. RESHMA WILL SEE YOU SOON</p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <section class="py-20 bg-white text-center">
         <h2 class="text-3xl font-black uppercase mb-16">Find Us in Ambarnath</h2>
