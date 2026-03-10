@@ -20,17 +20,6 @@
         .hover-scale:hover { transform: translateY(-5px); }
         #thank-you-page { display: none; }
         .scroll-mt-20 { scroll-margin-top: 5rem; }
-        .testimonial-card { position: relative; overflow: hidden; }
-        .testimonial-card::before {
-            content: "\f10d";
-            font-family: "Font Awesome 6 Free";
-            font-weight: 900;
-            position: absolute;
-            top: -10px;
-            right: 20px;
-            font-size: 80px;
-            color: rgba(219, 39, 119, 0.05);
-        }
         #mobile-menu {
             display: none;
             transform-origin: top right;
@@ -90,12 +79,8 @@
                     <button onclick="closeMenuAndScroll('treatments')" class="text-left hover:bg-pink-50 hover:text-pink-600 p-3 rounded-xl transition-colors flex items-center gap-3">
                         <i class="fas fa-stethoscope w-4"></i> Treatments
                     </button>
-                    <a href="results.html" class="hover:bg-pink-50 hover:text-pink-600 p-3 rounded-xl transition-colors flex items-center gap-3">
+                    <a href="results.html" class="hover:bg-pink-50 hover:text-pink-600 p-3 rounded-xl flex items-center gap-3">
                         <i class="fas fa-star w-4"></i> Results
-                    </a>
-                    <div class="h-[1px] bg-slate-100 my-1"></div>
-                    <a href="tel:9969590101" class="text-pink-600 p-3 flex items-center gap-3">
-                        <i class="fas fa-phone-alt w-4"></i> Call
                     </a>
                 </div>
             </div>
@@ -146,31 +131,16 @@
     </header>
 
     <section id="treatments" class="py-32 bg-white scroll-mt-20">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="text-center mb-20">
-                <h2 class="text-4xl font-black text-slate-900 uppercase tracking-tight">Ambarnath's First Laser Center</h2>
-                <p class="text-slate-400 mt-2">Equipped with high-precision medical-grade machines</p>
-            </div>
-            <div class="grid md:grid-cols-3 gap-10">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <h2 class="text-4xl font-black text-slate-900 uppercase tracking-tight mb-20">Ambarnath's First Laser Center</h2>
+            <div class="grid md:grid-cols-3 gap-10 text-left">
                 <div class="p-10 rounded-[3rem] bg-slate-50 border border-slate-100 hover-scale">
                     <div class="w-12 h-12 bg-pink-100 text-pink-600 rounded-xl flex items-center justify-center mb-6"><i class="fas fa-magic"></i></div>
                     <h4 class="font-black text-xl mb-4 uppercase">Laser Carbon Peel</h4>
                     <p class="text-slate-500 text-sm leading-relaxed mb-6">The 'Hollywood Glow' for instant skin brightening and pore refinement.</p>
                     <a href="treatments.html" class="text-pink-600 font-bold text-xs uppercase tracking-widest hover:underline">Learn More →</a>
                 </div>
-                <div class="p-10 rounded-[3rem] bg-slate-50 border border-slate-100 hover-scale">
-                    <div class="w-12 h-12 bg-pink-100 text-pink-600 rounded-xl flex items-center justify-center mb-6"><i class="fas fa-hand-sparkles"></i></div>
-                    <h4 class="font-black text-xl mb-4 uppercase">Laser Hair Reduction</h4>
-                    <p class="text-slate-500 text-sm leading-relaxed mb-6">Painless, permanent solution for unwanted hair using world-class tech.</p>
-                    <a href="treatments.html" class="text-pink-600 font-bold text-xs uppercase tracking-widest hover:underline">Learn More →</a>
                 </div>
-                <div class="p-10 rounded-[3rem] bg-slate-50 border border-slate-100 hover-scale">
-                    <div class="w-12 h-12 bg-pink-100 text-pink-600 rounded-xl flex items-center justify-center mb-6"><i class="fas fa-eraser"></i></div>
-                    <h4 class="font-black text-xl mb-4 uppercase">Tattoo Removal</h4>
-                    <p class="text-slate-500 text-sm leading-relaxed mb-6">Advanced laser technology for safe, scar-free tattoo clearance.</p>
-                    <a href="treatments.html" class="text-pink-600 font-bold text-xs uppercase tracking-widest hover:underline">Learn More →</a>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -241,20 +211,11 @@
         </div>
     </section>
 
-    <section class="py-20 bg-white text-center">
-        <h2 class="text-3xl font-black uppercase mb-16">Find Us in Ambarnath</h2>
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="rounded-[3rem] overflow-hidden shadow-2xl border-8 border-slate-50">
-               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3768.4116496350756!2d73.2359419!3d19.1772419!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7950000000001%3A0xe54950b73a38890!2sDr.%20Reshma's%20Skin%2C%20Hair%20%26%20Aesthetic%20Clinic!5e0!3m2!1sen!2sin!4v1710000000000" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-            </div>
-        </div>
-    </section>
-
-    <footer class="bg-[#0a1128] text-white py-24 text-center md:text-left">
-        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-16">
+    <footer class="bg-[#0a1128] text-white py-24">
+        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-16 text-center md:text-left">
             <div>
                 <h3 class="font-bold text-xl mb-8 uppercase text-pink-500">Contact</h3>
-                <p class="font-bold text-lg mb-8">Ambarnath East, Maharashtra</p>
+                <p class="font-bold text-lg mb-4">Ambarnath East, Maharashtra</p>
                 <a href="tel:9969590101" class="text-2xl font-black">+91 9969590101</a>
             </div>
             <div>
@@ -273,100 +234,106 @@
     </footer>
 
     <script>
-    const API_URL = "https://script.google.com/macros/s/AKfycbzG1K7WvQERhm0iR8JwyZX0X0JrN-uidZvCMJexQACaHI-wYyXsRgMWKOvUXpnwykrXOA/exec";
-    
-    const dateSelect = document.getElementById('doctor-date');
-    const timeSelect = document.getElementById('doctor-time');
-    const bookingForm = document.getElementById('clinic-booking-form');
-    let clinicSchedule = {};
+        // 1. YOUR API URL
+        const API_URL = "https://script.google.com/macros/s/AKfycbzAH68UHPkYslfKSaivvGwb-H7ZK_Y8ZDvsDiw1DGCNHUvW_0RNTvJmChViqgfbv4vNtA/exec";
+        
+        const dateSelect = document.getElementById('doctor-date');
+        const timeSelect = document.getElementById('doctor-time');
+        const bookingForm = document.getElementById('clinic-booking-form');
+        const submitBtn = document.getElementById('submit-btn');
+        let clinicSchedule = {};
 
-    // Helper to clean that "1899" time string
-    function formatTime(timeStr) {
-        if (!timeStr) return "";
-        // If it's the long 1899 string, extract just the HH:MM
-        if (timeStr.includes("1899") || timeStr.includes(":")) {
-            const match = timeStr.match(/(\d{2}:\d{2})/);
-            return match ? match[1] : timeStr;
+        // 2. FETCH SCHEDULE
+        async function loadClinicSchedule() {
+            try {
+                dateSelect.innerHTML = '<option value="" class="bg-slate-900 text-white">LOADING...</option>';
+                const response = await fetch(API_URL);
+                const data = await response.json();
+                
+                clinicSchedule = {};
+                data.forEach(item => {
+                    if (!clinicSchedule[item.date]) clinicSchedule[item.date] = [];
+                    clinicSchedule[item.date].push({ 
+                        time: item.time, 
+                        status: item.status 
+                    });
+                });
+
+                dateSelect.innerHTML = '<option value="" class="bg-slate-900 text-white">CHOOSE DATE</option>';
+                Object.keys(clinicSchedule).forEach(date => {
+                    const opt = document.createElement('option');
+                    opt.value = date;
+                    opt.textContent = date;
+                    opt.className = "bg-slate-900 text-white font-bold";
+                    dateSelect.appendChild(opt);
+                });
+            } catch (e) {
+                console.error("Fetch Error:", e);
+                dateSelect.innerHTML = '<option value="" class="bg-slate-900 text-white">OFFLINE</option>';
+            }
         }
-        return timeStr;
-    }
 
-    async function loadClinicSchedule() {
-    try {
-        dateSelect.innerHTML = '<option value="">LOADING...</option>';
-        // Using your new deployed URL
-        const API_URL = "https://script.google.com/macros/s/AKfycby8MbpEVNJJhataXlJAD1A-LGoh9uzU7XF_GawPT6MwQjQMSFsYQTMtljsYdjbUlKVsOA/exec";
-        
-        const response = await fetch(API_URL);
-        const data = await response.json();
-        
-        clinicSchedule = {};
-
-        data.forEach(item => {
-            // Your script now sends "date" and "time" in lowercase
-            let dateStr = item.date; 
-            if (!clinicSchedule[dateStr]) clinicSchedule[dateStr] = [];
+        // 3. HANDLE DATE SELECTION
+        dateSelect.addEventListener('change', (e) => {
+            const selectedDate = e.target.value;
+            timeSelect.innerHTML = '<option value="">SELECT TIME</option>';
             
-            // Time is already formatted to 12hr (h:mm a) by your script!
-            clinicSchedule[dateStr].push(item.time);
+            if (selectedDate && clinicSchedule[selectedDate]) {
+                timeSelect.disabled = false;
+                clinicSchedule[selectedDate].forEach(slot => {
+                    const opt = document.createElement('option');
+                    opt.value = slot.time;
+                    
+                    if (slot.status === 'booked') {
+                        opt.textContent = `${slot.time} (BOOKED)`;
+                        opt.disabled = true;
+                        opt.className = "bg-slate-800 text-slate-500 italic line-through";
+                    } else {
+                        opt.textContent = slot.time;
+                        opt.className = "bg-slate-900 text-white font-bold";
+                    }
+                    timeSelect.appendChild(opt);
+                });
+            } else {
+                timeSelect.disabled = true;
+            }
         });
 
-        dateSelect.innerHTML = '<option value="">CHOOSE DATE</option>';
-        Object.keys(clinicSchedule).forEach(date => {
-            const opt = document.createElement('option');
-            opt.value = date;
-            opt.textContent = date; 
-            opt.className = "text-slate-900 font-bold";
-            dateSelect.appendChild(opt);
+        // 4. SUBMIT FORM
+        bookingForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            submitBtn.disabled = true;
+            submitBtn.textContent = "SENDING...";
+
+            const formData = new FormData(bookingForm);
+            const params = new URLSearchParams(formData).toString();
+
+            try {
+                await fetch(`${API_URL}?${params}`, { method: 'POST' });
+                document.getElementById('booking-form-wrapper').style.display = 'none';
+                document.getElementById('thank-you-page').style.display = 'block';
+            } catch (err) {
+                // Fallback for CORS: If redirected or failed but row is added
+                document.getElementById('booking-form-wrapper').style.display = 'none';
+                document.getElementById('thank-you-page').style.display = 'block';
+            }
         });
 
-    } catch (e) {
-        console.error("Schedule Error:", e);
-        dateSelect.innerHTML = '<option value="">ERROR LOADING</option>';
-    }
-}
+        // Mobile Menu Logic
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('active'));
 
-    dateSelect.addEventListener('change', function() {
-        const slots = clinicSchedule[this.value] || [];
-        timeSelect.innerHTML = '<option value="">SELECT TIME</option>';
-        timeSelect.disabled = slots.length === 0;
-        slots.forEach(time => {
-            const opt = document.createElement('option');
-            opt.value = time;
-            opt.textContent = time;
-            opt.className = "text-slate-900 font-bold";
-            timeSelect.appendChild(opt);
-        });
-    });
+        function manualScroll(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        }
 
-    bookingForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        const btn = document.getElementById('submit-btn');
-        btn.textContent = "SENDING...";
-        btn.disabled = true;
+        function closeMenuAndScroll(id) {
+            mobileMenu.classList.remove('active');
+            manualScroll(id);
+        }
 
-        fetch(API_URL, {
-            method: 'POST',
-            body: new URLSearchParams(new FormData(bookingForm))
-        })
-        .then(() => {
-            document.getElementById('booking-form-wrapper').classList.add('hidden');
-            document.getElementById('thank-you-page').style.display = 'block';
-            window.scrollTo({ top: document.getElementById('booking').offsetTop - 80, behavior: 'smooth' });
-        })
-        .catch(() => {
-            alert("Error! Call +91 9969590101");
-            btn.disabled = false;
-            btn.textContent = "Confirm Appointment";
-        });
-    });
-
-    // Simple Mobile Menu Logic
-    document.getElementById('menu-btn').addEventListener('click', () => {
-        document.getElementById('mobile-menu').classList.toggle('active');
-    });
-
-    window.addEventListener('DOMContentLoaded', loadClinicSchedule);
-</script>
+        loadClinicSchedule();
+    </script>
 </body>
 </html>
