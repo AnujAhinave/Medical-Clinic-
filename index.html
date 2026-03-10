@@ -9,7 +9,6 @@
     <style>
         html { scroll-behavior: smooth; }
         .gradient-text { background: linear-gradient(90deg, #be185d, #6366f1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        
         .unified-hero-bg { 
             background: linear-gradient(rgba(255,255,255,0.92), rgba(255,255,255,0.92)), 
             url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=60&w=1200'); 
@@ -17,13 +16,10 @@
             background-position: center;
             background-attachment: fixed;
         }
-        
         .hover-scale { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
         .hover-scale:hover { transform: translateY(-5px); }
-        
         #thank-you-page { display: none; }
         .scroll-mt-20 { scroll-margin-top: 5rem; }
-
         .testimonial-card { position: relative; overflow: hidden; }
         .testimonial-card::before {
             content: "\f10d";
@@ -35,8 +31,6 @@
             font-size: 80px;
             color: rgba(219, 39, 119, 0.05);
         }
-
-        /* Mobile Menu Animation */
         #mobile-menu {
             display: none;
             transform-origin: top right;
@@ -80,7 +74,6 @@
                 <button onclick="manualScroll('booking')" class="bg-pink-600 text-white px-5 py-2.5 rounded-full font-bold hover:bg-pink-700 shadow-lg shadow-pink-200 text-xs transition-all">
                     Book Now
                 </button>
-                
                 <button id="menu-btn" class="lg:hidden text-slate-900 focus:outline-none p-2 bg-slate-50 rounded-lg border border-slate-200">
                     <i class="fas fa-bars text-xl" id="menu-icon"></i>
                 </button>
@@ -110,9 +103,9 @@
     </nav>
 
     <header id="about" class="unified-hero-bg border-b border-slate-200 pt-20 pb-28 scroll-mt-20">
-        <div class="max-w-6xl mx-auto px-6">
+        <div class="max-w-6xl mx-auto px-6 text-center lg:text-left">
             <div class="flex flex-col lg:flex-row items-center justify-between gap-16">
-                <div class="w-full lg:w-3/5 text-center lg:text-left order-2 lg:order-1">
+                <div class="w-full lg:w-3/5 order-2 lg:order-1">
                     <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-pink-50 border border-pink-100 mb-6">
                         <span class="w-2 h-2 rounded-full bg-pink-500 animate-pulse"></span>
                         <span class="text-pink-600 font-black tracking-widest text-[10px] uppercase">Aesthetic Expert</span>
@@ -181,169 +174,78 @@
         </div>
     </section>
 
-    <section id="results" class="py-32 bg-slate-50 scroll-mt-20">
-        <div class="max-w-6xl mx-auto px-6">
-            <h2 class="text-4xl font-black text-slate-900 uppercase tracking-tight mb-20">Clinical Results</h2>
-            <div class="grid md:grid-cols-2 gap-12">
-                <div class="group bg-white p-6 rounded-[3.5rem] shadow-xl shadow-slate-200/60 border border-white hover-scale">
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="relative rounded-[2.5rem] overflow-hidden aspect-[4/5] bg-slate-100">
-                            <img src="https://cdn.prod.website-files.com/66fabe2847e9b74451668843/67fcdae89fe4d67467dd3b95_Laser%20Tattoo%20Removal%20Healing%20Process.jpg" class="w-full h-full object-cover grayscale" alt=" class="w-full h-full object-cover grayscale-[0.5]" alt="Before">
-                        </div>
-                        <div class="relative rounded-[2.5rem] overflow-hidden aspect-[4/5] bg-slate-100">
-                            <img src="https://www.laserskinsurgery.com/wp-content/uploads/2020/05/Laser-tattoo-removal-New-York-City-NYC-2.jpeg" class="w-full h-full object-cover" alt="After">
-                        </div>
-                    </div>
-                    <h4 class="mt-8 px-4 font-black text-2xl text-slate-900 uppercase tracking-tighter">Laser Tattoo Clearance</h4>
-                </div>
-                <div class="group bg-white p-6 rounded-[3.5rem] shadow-xl shadow-slate-200/60 border border-white hover-scale">
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="relative rounded-[2.5rem] overflow-hidden aspect-[4/5] bg-slate-100">
-                            <img src="https://actandacre.co.uk/cdn/shop/files/2715423_02_600x.jpg?v=1732046217" class="w-full h-full object-cover grayscale" alt=" class="w-full h-full object-cover grayscale-[0.5]" alt="Before">
-                        </div>
-                        <div class="relative rounded-[2.5rem] overflow-hidden aspect-[4/5] bg-slate-100">
-                            <img src="https://actandacre.co.uk/cdn/shop/files/2715423_02_600x.jpg?v=1732046217" class="w-full h-full object-cover" alt="After">
-                        </div>
-                    </div>
-                    <h4 class="mt-8 px-4 font-black text-2xl text-slate-900 uppercase tracking-tighter">Scalp Detox Therapy</h4>
-                </div>
-            </div>
-            <div class="mt-16 text-center">
-                <a href="results.html" class="bg-slate-900 text-white px-10 py-5 rounded-2xl font-black uppercase tracking-widest hover:bg-slate-800 transition shadow-lg inline-block">View Full Gallery</a>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-32 bg-white">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4">
-                <div>
-                    <span class="text-pink-600 font-black text-[10px] uppercase tracking-[0.3em]">Voices of trust</span>
-                    <h2 class="text-4xl font-black text-slate-900 uppercase tracking-tight mt-2">What Our Patients Say</h2>
-                </div>
-                <div class="flex items-center gap-2 text-yellow-400 text-xl">
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                    <span class="text-slate-400 text-sm font-bold ml-2">4.9/5 Google Rating</span>
-                </div>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="testimonial-card bg-slate-50 p-10 rounded-[2.5rem] border border-slate-100 hover-scale">
-                    <p class="text-slate-600 italic leading-relaxed mb-8 relative z-10">
-                        "I was worried about tattoo removal pain, but Dr. Reshma made the process so comfortable. The results after 3 sessions are incredible."
-                    </p>
-                    <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center font-black text-pink-600">A</div>
-                        <div>
-                            <h5 class="font-black text-slate-900 text-sm uppercase">Anjali Sharma</h5>
-                            <p class="text-[10px] text-slate-400 font-bold uppercase">Tattoo Removal Patient</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card bg-slate-50 p-10 rounded-[2.5rem] border border-slate-100 hover-scale">
-                    <p class="text-slate-600 italic leading-relaxed mb-8 relative z-10">
-                        "The Carbon Laser Peel is like magic for oily skin. I got an instant glow for my sister's wedding. Best aesthetic clinic in Ambarnath East."
-                    </p>
-                    <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center font-black text-pink-600">R</div>
-                        <div>
-                            <h5 class="font-black text-slate-900 text-sm uppercase">Rahul Verma</h5>
-                            <p class="text-[10px] text-slate-400 font-bold uppercase">Carbon Peel Patient</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card bg-slate-50 p-10 rounded-[2.5rem] border border-slate-100 hover-scale">
-                    <p class="text-slate-600 italic leading-relaxed mb-8 relative z-10">
-                        "Excellent doctor who actually listens. My scalp dandruff issue was solved in just a month. Very professional care."
-                    </p>
-                    <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center font-black text-pink-600">P</div>
-                        <div>
-                            <h5 class="font-black text-slate-900 text-sm uppercase">Priya Nair</h5>
-                            <p class="text-[10px] text-slate-400 font-bold uppercase">Trichology Patient</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section id="booking" class="py-32 bg-slate-900 scroll-mt-20">
-    <div class="max-w-3xl mx-auto px-6">
-        <div id="booking-container" class="bg-white/5 backdrop-blur-xl rounded-[3.5rem] border border-white/10 p-12 shadow-2xl">
-            
-            <div id="booking-form-wrapper">
-                <h3 class="text-4xl font-black text-white text-center uppercase mb-12 tracking-tighter">
-                    Request <span class="text-pink-500 italic">Appointment</span>
-                </h3>
+        <div class="max-w-3xl mx-auto px-6">
+            <div id="booking-container" class="bg-white/5 backdrop-blur-xl rounded-[3.5rem] border border-white/10 p-12 shadow-2xl">
                 
-                <form id="clinic-booking-form" class="grid grid-cols-1 gap-8">
-                    <div class="relative group">
-                        <i class="fas fa-user absolute left-6 top-1/2 -translate-y-1/2 text-pink-500/50"></i>
-                        <input type="text" name="firstName" placeholder="FULL NAME" required 
-                               class="w-full bg-white/10 border border-white/10 rounded-2xl pl-14 pr-6 py-5 text-white focus:border-pink-500 outline-none transition uppercase text-[10px] font-black tracking-widest placeholder:text-slate-500">
-                    </div>
+                <div id="booking-form-wrapper">
+                    <h3 class="text-4xl font-black text-white text-center uppercase mb-12 tracking-tighter">
+                        Request <span class="text-pink-500 italic">Appointment</span>
+                    </h3>
                     
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <div class="relative">
-                            <i class="fas fa-phone absolute left-6 top-1/2 -translate-y-1/2 text-pink-500/50"></i>
-                            <input type="tel" name="phone" placeholder="MOBILE NUMBER" required 
-                                   class="w-full bg-white/10 border border-white/10 rounded-2xl pl-14 pr-6 py-5 text-white focus:border-pink-500 outline-none transition uppercase text-[10px] font-black tracking-widest">
+                    <form id="clinic-booking-form" class="grid grid-cols-1 gap-8">
+                        <div class="relative group">
+                            <i class="fas fa-user absolute left-6 top-1/2 -translate-y-1/2 text-pink-500/50"></i>
+                            <input type="text" name="firstName" placeholder="FULL NAME" required 
+                                   class="w-full bg-white/10 border border-white/10 rounded-2xl pl-14 pr-6 py-5 text-white focus:border-pink-500 outline-none transition uppercase text-[10px] font-black tracking-widest placeholder:text-slate-500">
                         </div>
                         
-                        <div class="relative">
-                            <i class="fas fa-envelope absolute left-6 top-1/2 -translate-y-1/2 text-pink-500/50"></i>
-                            <input type="email" name="email" placeholder="EMAIL ADDRESS" required 
-                                   class="w-full bg-white/10 border border-white/10 rounded-2xl pl-14 pr-6 py-5 text-white focus:border-pink-500 outline-none transition uppercase text-[10px] font-black tracking-widest">
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <div class="relative">
-                            <i class="fas fa-calendar absolute left-6 top-1/2 -translate-y-1/2 text-pink-500/50"></i>
-                            <select id="doctor-date" name="selected_date" required 
-                                    class="w-full bg-white/10 border border-white/10 rounded-2xl pl-14 pr-6 py-5 text-white focus:border-pink-500 outline-none appearance-none uppercase text-[10px] font-black tracking-widest">
-                                <option value="" class="bg-slate-900 text-white">CHOOSE DATE</option>
-                            </select>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div class="relative">
+                                <i class="fas fa-phone absolute left-6 top-1/2 -translate-y-1/2 text-pink-500/50"></i>
+                                <input type="tel" name="phone" placeholder="MOBILE NUMBER" required 
+                                       class="w-full bg-white/10 border border-white/10 rounded-2xl pl-14 pr-6 py-5 text-white focus:border-pink-500 outline-none transition uppercase text-[10px] font-black tracking-widest">
+                            </div>
+                            <div class="relative">
+                                <i class="fas fa-envelope absolute left-6 top-1/2 -translate-y-1/2 text-pink-500/50"></i>
+                                <input type="email" name="email" placeholder="EMAIL ADDRESS" required 
+                                       class="w-full bg-white/10 border border-white/10 rounded-2xl pl-14 pr-6 py-5 text-white focus:border-pink-500 outline-none transition uppercase text-[10px] font-black tracking-widest">
+                            </div>
                         </div>
 
-                        <div class="relative">
-                            <i class="fas fa-clock absolute left-6 top-1/2 -translate-y-1/2 text-pink-500/50"></i>
-                            <select id="doctor-time" name="selected_time" disabled required 
-                                    class="w-full bg-white/10 border border-white/10 rounded-2xl pl-14 pr-6 py-5 text-white focus:border-pink-500 outline-none appearance-none disabled:opacity-30 uppercase text-[10px] font-black tracking-widest">
-                                <option value="" class="bg-slate-900 text-white">SELECT TIME</option>
-                            </select>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div class="relative">
+                                <i class="fas fa-calendar absolute left-6 top-1/2 -translate-y-1/2 text-pink-500/50"></i>
+                                <select id="doctor-date" name="selected_date" required 
+                                        class="w-full bg-white/10 border border-white/10 rounded-2xl pl-14 pr-6 py-5 text-white focus:border-pink-500 outline-none appearance-none uppercase text-[10px] font-black tracking-widest">
+                                    <option value="" class="bg-slate-900 text-white">CHOOSE DATE</option>
+                                </select>
+                            </div>
+                            <div class="relative">
+                                <i class="fas fa-clock absolute left-6 top-1/2 -translate-y-1/2 text-pink-500/50"></i>
+                                <select id="doctor-time" name="selected_time" disabled required 
+                                        class="w-full bg-white/10 border border-white/10 rounded-2xl pl-14 pr-6 py-5 text-white focus:border-pink-500 outline-none appearance-none disabled:opacity-30 uppercase text-[10px] font-black tracking-widest">
+                                    <option value="" class="bg-slate-900 text-white">SELECT TIME</option>
+                                </select>
+                            </div>
                         </div>
-                    </div>
 
-                    <textarea name="description" placeholder="BRIEFLY DESCRIBE YOUR CONCERN..." required rows="3"
-                              class="w-full bg-white/10 border border-white/10 rounded-2xl px-6 py-5 text-white focus:border-pink-500 outline-none transition uppercase text-[10px] font-black tracking-widest placeholder:text-slate-500"></textarea>
+                        <textarea name="description" placeholder="BRIEFLY DESCRIBE YOUR CONCERN..." required rows="3"
+                                  class="w-full bg-white/10 border border-white/10 rounded-2xl px-6 py-5 text-white focus:border-pink-500 outline-none transition uppercase text-[10px] font-black tracking-widest placeholder:text-slate-500"></textarea>
 
-                    <button type="submit" id="submit-btn" 
-                            class="w-full bg-pink-600 text-white font-black py-6 rounded-2xl hover:bg-white hover:text-pink-600 transition-all duration-500 uppercase mt-6 shadow-2xl shadow-pink-900/40 tracking-[0.4em] text-[10px]">
-                        Confirm Appointment
-                    </button>
-                </form>
-            </div>
-
-            <div id="thank-you-page" class="hidden text-center py-10">
-                <div class="w-24 h-24 bg-pink-500 rounded-full flex items-center justify-center text-white text-5xl mx-auto mb-8 animate-bounce shadow-xl shadow-pink-500/20">
-                    <i class="fas fa-check"></i>
+                        <button type="submit" id="submit-btn" 
+                                class="w-full bg-pink-600 text-white font-black py-6 rounded-2xl hover:bg-white hover:text-pink-600 transition-all duration-500 uppercase mt-6 shadow-2xl shadow-pink-900/40 tracking-[0.4em] text-[10px]">
+                            Confirm Appointment
+                        </button>
+                    </form>
                 </div>
-                <h3 class="text-4xl font-black text-white uppercase tracking-tighter">Slot Reserved</h3>
-                <p class="text-slate-400 mt-6 text-sm tracking-widest font-bold">DR. RESHMA WILL SEE YOU SOON</p>
+
+                <div id="thank-you-page" class="hidden text-center py-10">
+                    <div class="w-24 h-24 bg-pink-500 rounded-full flex items-center justify-center text-white text-5xl mx-auto mb-8 animate-bounce shadow-xl shadow-pink-500/20">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <h3 class="text-4xl font-black text-white uppercase tracking-tighter">Slot Reserved</h3>
+                    <p class="text-slate-400 mt-6 text-sm tracking-widest font-bold">DR. RESHMA WILL SEE YOU SOON</p>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <section class="py-20 bg-white text-center">
         <h2 class="text-3xl font-black uppercase mb-16">Find Us in Ambarnath</h2>
         <div class="max-w-6xl mx-auto px-6">
             <div class="rounded-[3rem] overflow-hidden shadow-2xl border-8 border-slate-50">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3768.123456789!2d73.18!3d19.2!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDEyJzAwLjAiTiA3M8KwMTAnNDguMCJF!5e0!3m2!1sen!2sin!4v1640000000000!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m12!1m3!1d3768.123!2d73.195!3d19.2!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDEyJzAwLjAiTiA3M8KwMTEnNDIuMCJF!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
     </section>
@@ -371,11 +273,56 @@
     </footer>
 
     <script>
-        // Menu Toggle Logic
+        // 1. CONFIGURATION
+        const API_URL = "https://script.google.com/macros/s/AKfycbzG1K7WvQERhm0iR8JwyZX0X0JrN-uidZvCMJexQACaHI-wYyXsRgMWKOvUXpnwykrXOA/exec";
+        
         const btn = document.getElementById('menu-btn');
         const menu = document.getElementById('mobile-menu');
         const icon = document.getElementById('menu-icon');
+        const dateSelect = document.getElementById('doctor-date');
+        const timeSelect = document.getElementById('doctor-time');
+        const bookingForm = document.getElementById('clinic-booking-form');
+        let clinicSchedule = {};
 
+        // 2. FETCH SCHEDULE DATA (HANDLES DD/MM/YYYY)
+        async function loadClinicSchedule() {
+            try {
+                dateSelect.innerHTML = '<option value="" class="text-slate-900">FETCHING DATES...</option>';
+                
+                const response = await fetch(API_URL);
+                const data = await response.json();
+                
+                clinicSchedule = {};
+                data.forEach(item => {
+                    if (!clinicSchedule[item.date]) clinicSchedule[item.date] = [];
+                    clinicSchedule[item.date].push(item.time);
+                });
+
+                dateSelect.innerHTML = '<option value="" class="text-slate-900">CHOOSE DATE</option>';
+                
+                Object.keys(clinicSchedule).forEach(dateStr => {
+                    const opt = document.createElement('option');
+                    opt.value = dateStr; 
+                    
+                    // MANUALLY PARSE DD/MM/YYYY TO PREVENT "INVALID DATE"
+                    const parts = dateStr.split('/');
+                    const day = parseInt(parts[0], 10);
+                    const month = parseInt(parts[1], 10) - 1; 
+                    const year = parseInt(parts[2], 10);
+                    const dateObj = new Date(year, month, day);
+                    
+                    opt.textContent = dateObj.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' }).toUpperCase();
+                    opt.className = "text-slate-900 font-bold";
+                    dateSelect.appendChild(opt);
+                });
+
+            } catch (error) {
+                console.error("Fetch Error:", error);
+                dateSelect.innerHTML = '<option value="" class="text-slate-900">UNABLE TO LOAD SLOTS</option>';
+            }
+        }
+
+        // 3. UI LOGIC (MENU & SCROLL)
         btn.addEventListener('click', (e) => {
             e.stopPropagation();
             menu.classList.toggle('active');
@@ -383,7 +330,6 @@
             icon.classList.toggle('fa-times');
         });
 
-        // Close menu when clicking anywhere else
         document.addEventListener('click', (e) => {
             if (!menu.contains(e.target) && !btn.contains(e.target)) {
                 menu.classList.remove('active');
@@ -392,7 +338,6 @@
             }
         });
 
-        // Combined scroll and menu close logic
         function closeMenuAndScroll(sectionId) {
             menu.classList.remove('active');
             icon.classList.add('fa-bars');
@@ -400,7 +345,6 @@
             setTimeout(() => manualScroll(sectionId), 100);
         }
 
-        // Smooth scroll with navbar offset
         function manualScroll(sectionId) {
             const section = document.getElementById(sectionId);
             if (section) {
@@ -410,22 +354,49 @@
             }
         }
 
-        // Form handler
-        function handleBooking(e) {
-            e.preventDefault();
-            document.getElementById('booking-form').style.display = 'none';
-            document.getElementById('thank-you-page').style.display = 'block';
-            manualScroll('booking');
-        }
-
-        // Logic for landing from other pages
-        window.addEventListener('load', function() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const scrollTarget = urlParams.get('scroll');
-            if (scrollTarget) {
-                setTimeout(() => manualScroll(scrollTarget), 400); 
+        // 4. BOOKING LOGIC
+        dateSelect.addEventListener('change', function() {
+            const selectedDate = this.value;
+            timeSelect.innerHTML = '<option value="" class="text-slate-900">SELECT TIME</option>';
+            if (selectedDate && clinicSchedule[selectedDate]) {
+                timeSelect.disabled = false;
+                clinicSchedule[selectedDate].forEach(time => {
+                    const opt = document.createElement('option');
+                    opt.value = time;
+                    opt.textContent = time;
+                    opt.className = "text-slate-900 font-bold";
+                    timeSelect.appendChild(opt);
+                });
+            } else {
+                timeSelect.disabled = true;
             }
         });
+
+        bookingForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const submitBtn = document.getElementById('submit-btn');
+            submitBtn.textContent = "CONFIRMING...";
+            submitBtn.disabled = true;
+
+            const formData = new FormData(bookingForm);
+
+            fetch(API_URL, {
+                method: 'POST',
+                body: new URLSearchParams(formData)
+            })
+            .then(() => {
+                document.getElementById('booking-form-wrapper').classList.add('hidden');
+                document.getElementById('thank-you-page').style.display = 'block';
+                manualScroll('booking');
+            })
+            .catch(err => {
+                alert("Error! Please call +91 9969590101.");
+                submitBtn.disabled = false;
+                submitBtn.textContent = "CONFIRM APPOINTMENT";
+            });
+        });
+
+        window.addEventListener('DOMContentLoaded', loadClinicSchedule);
     </script>
 </body>
 </html>
