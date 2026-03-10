@@ -233,107 +233,175 @@
         </div>
     </footer>
 
-    <script>
-        // 1. YOUR API URL
-        const API_URL = "https://script.google.com/macros/s/AKfycbzAH68UHPkYslfKSaivvGwb-H7ZK_Y8ZDvsDiw1DGCNHUvW_0RNTvJmChViqgfbv4vNtA/exec";
-        
-        const dateSelect = document.getElementById('doctor-date');
-        const timeSelect = document.getElementById('doctor-time');
-        const bookingForm = document.getElementById('clinic-booking-form');
-        const submitBtn = document.getElementById('submit-btn');
-        let clinicSchedule = {};
+   <script>
 
-        // 2. FETCH SCHEDULE
-        async function loadClinicSchedule() {
-            try {
-                dateSelect.innerHTML = '<option value="" class="bg-slate-900 text-white">LOADING...</option>';
-                const response = await fetch(API_URL);
-                const data = await response.json();
-                
-                clinicSchedule = {};
-                data.forEach(item => {
-                    if (!clinicSchedule[item.date]) clinicSchedule[item.date] = [];
-                    clinicSchedule[item.date].push({ 
-                        time: item.time, 
-                        status: item.status 
-                    });
+const API_URL = "https://script.google.com/macros/s/AKfycbzAH68UHPkYslfKSaivvGwb-H7ZK_Y8ZDvsDiw1DGCNHUvW_0RNTvJmChViqgfbv4vNtA/exec";
+
+const dateSelect = document.getElementById('doctor-date');
+const timeSelect = document.getElementById('doctor-time');
+const bookingForm = document.getElementById('clinic-booking-form');
+const submitBtn = document.getElementById('submit-btn');
+
+let clinicSchedule = {};
+
+async function loadClinicSchedule() {
+
+    try {
+
+        dateSelect.innerHTML = '<option value="">LOADING...</option>';
+
+        const response = await fetch(API_URL);
+        const data = await response.json();
+
+        clinicSchedule = {};
+
+        data.forEach(item => {
+
+            let cleanDate = item.date;
+
+            // Fix ISO date format from Google Script
+            if (typeof item.date === "string" && item.date.includes("T")) {
+
+                const dateObj = new Date(item.date);
+
+                cleanDate = dateObj.toLocaleDateString('en-GB', {
+                    day: '2-digit',
+                    month: 'short',
+                    year: 'numeric'
                 });
 
-                dateSelect.innerHTML = '<option value="" class="bg-slate-900 text-white">CHOOSE DATE</option>';
-                Object.keys(clinicSchedule).forEach(date => {
-                    const opt = document.createElement('option');
-                    opt.value = date;
-                    opt.textContent = date;
-                    opt.className = "bg-slate-900 text-white font-bold";
-                    dateSelect.appendChild(opt);
-                });
-            } catch (e) {
-                console.error("Fetch Error:", e);
-                dateSelect.innerHTML = '<option value="" class="bg-slate-900 text-white">OFFLINE</option>';
             }
-        }
 
-        // 3. HANDLE DATE SELECTION
-        dateSelect.addEventListener('change', (e) => {
-            const selectedDate = e.target.value;
-            timeSelect.innerHTML = '<option value="">SELECT TIME</option>';
-            
-            if (selectedDate && clinicSchedule[selectedDate]) {
-                timeSelect.disabled = false;
-                clinicSchedule[selectedDate].forEach(slot => {
-                    const opt = document.createElement('option');
-                    opt.value = slot.time;
-                    
-                    if (slot.status === 'booked') {
-                        opt.textContent = `${slot.time} (BOOKED)`;
-                        opt.disabled = true;
-                        opt.className = "bg-slate-800 text-slate-500 italic line-through";
-                    } else {
-                        opt.textContent = slot.time;
-                        opt.className = "bg-slate-900 text-white font-bold";
-                    }
-                    timeSelect.appendChild(opt);
-                });
+            if (!clinicSchedule[cleanDate]) {
+                clinicSchedule[cleanDate] = [];
+            }
+
+            clinicSchedule[cleanDate].push({
+                time: item.time,
+                status: item.status || "available"
+            });
+
+        });
+
+        dateSelect.innerHTML = '<option value="">CHOOSE DATE</option>';
+
+        Object.keys(clinicSchedule).forEach(date => {
+
+            const opt = document.createElement('option');
+            opt.value = date;
+            opt.textContent = date;
+
+            dateSelect.appendChild(opt);
+
+        });
+
+    } catch (error) {
+
+        console.error("Schedule Fetch Error:", error);
+
+        dateSelect.innerHTML = '<option value="">OFFLINE</option>';
+
+    }
+
+}
+
+
+dateSelect.addEventListener('change', function(e) {
+
+    const selectedDate = e.target.value;
+
+    timeSelect.innerHTML = '<option value="">SELECT TIME</option>';
+
+    if (selectedDate && clinicSchedule[selectedDate]) {
+
+        timeSelect.disabled = false;
+
+        clinicSchedule[selectedDate].forEach(slot => {
+
+            const opt = document.createElement('option');
+
+            opt.value = slot.time;
+
+            if (slot.status === "booked") {
+
+                opt.textContent = slot.time + " (BOOKED)";
+                opt.disabled = true;
+
             } else {
-                timeSelect.disabled = true;
+
+                opt.textContent = slot.time;
+
             }
+
+            timeSelect.appendChild(opt);
+
         });
 
-        // 4. SUBMIT FORM
-        bookingForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            submitBtn.disabled = true;
-            submitBtn.textContent = "SENDING...";
+    } else {
 
-            const formData = new FormData(bookingForm);
-            const params = new URLSearchParams(formData).toString();
+        timeSelect.disabled = true;
 
-            try {
-                await fetch(`${API_URL}?${params}`, { method: 'POST' });
-                document.getElementById('booking-form-wrapper').style.display = 'none';
-                document.getElementById('thank-you-page').style.display = 'block';
-            } catch (err) {
-                // Fallback for CORS: If redirected or failed but row is added
-                document.getElementById('booking-form-wrapper').style.display = 'none';
-                document.getElementById('thank-you-page').style.display = 'block';
-            }
+    }
+
+});
+
+
+bookingForm.addEventListener('submit', async function(e) {
+
+    e.preventDefault();
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = "SENDING...";
+
+    const formData = new FormData(bookingForm);
+    const params = new URLSearchParams(formData).toString();
+
+    try {
+
+        await fetch(`${API_URL}?${params}`, {
+            method: 'POST',
+            mode: 'no-cors'
         });
 
-        // Mobile Menu Logic
-        const menuBtn = document.getElementById('menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('active'));
+        document.getElementById('booking-form-wrapper').style.display = 'none';
+        document.getElementById('thank-you-page').style.display = 'block';
 
-        function manualScroll(id) {
-            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
-        }
+    } catch (err) {
 
-        function closeMenuAndScroll(id) {
-            mobileMenu.classList.remove('active');
-            manualScroll(id);
-        }
+        document.getElementById('booking-form-wrapper').style.display = 'none';
+        document.getElementById('thank-you-page').style.display = 'block';
 
-        loadClinicSchedule();
-    </script>
+    }
+
+});
+
+
+const menuBtn = document.getElementById('menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+
+menuBtn.addEventListener('click', function(){
+    mobileMenu.classList.toggle('active');
+});
+
+
+function manualScroll(id) {
+
+    document.getElementById(id).scrollIntoView({
+        behavior: 'smooth'
+    });
+
+}
+
+function closeMenuAndScroll(id) {
+
+    mobileMenu.classList.remove('active');
+    manualScroll(id);
+
+}
+
+
+loadClinicSchedule();
+
+</script>
 </body>
 </html>
