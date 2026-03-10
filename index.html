@@ -245,7 +245,7 @@
         <h2 class="text-3xl font-black uppercase mb-16">Find Us in Ambarnath</h2>
         <div class="max-w-6xl mx-auto px-6">
             <div class="rounded-[3rem] overflow-hidden shadow-2xl border-8 border-slate-50">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m12!1m3!1d3768.123!2d73.195!3d19.2!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDEyJzAwLjAiTiA3M8KwMTEnNDIuMCJF!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3768.4116496350756!2d73.2359419!3d19.1772419!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7950000000001%3A0xe54950b73a38890!2sDr.%20Reshma's%20Skin%2C%20Hair%20%26%20Aesthetic%20Clinic!5e0!3m2!1sen!2sin!4v1710000000000" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
     </section>
@@ -273,130 +273,102 @@
     </footer>
 
     <script>
-        // 1. CONFIGURATION
-        const API_URL = "https://script.google.com/macros/s/AKfycbzG1K7WvQERhm0iR8JwyZX0X0JrN-uidZvCMJexQACaHI-wYyXsRgMWKOvUXpnwykrXOA/exec";
-        
-        const btn = document.getElementById('menu-btn');
-        const menu = document.getElementById('mobile-menu');
-        const icon = document.getElementById('menu-icon');
-        const dateSelect = document.getElementById('doctor-date');
-        const timeSelect = document.getElementById('doctor-time');
-        const bookingForm = document.getElementById('clinic-booking-form');
-        let clinicSchedule = {};
+    const API_URL = "https://script.google.com/macros/s/AKfycbzG1K7WvQERhm0iR8JwyZX0X0JrN-uidZvCMJexQACaHI-wYyXsRgMWKOvUXpnwykrXOA/exec";
+    
+    const dateSelect = document.getElementById('doctor-date');
+    const timeSelect = document.getElementById('doctor-time');
+    const bookingForm = document.getElementById('clinic-booking-form');
+    let clinicSchedule = {};
 
-        // 2. FETCH SCHEDULE DATA (HANDLES DD/MM/YYYY)
-        async function loadClinicSchedule() {
-            try {
-                dateSelect.innerHTML = '<option value="" class="text-slate-900">FETCHING DATES...</option>';
-                
-                const response = await fetch(API_URL);
-                const data = await response.json();
-                
-                clinicSchedule = {};
-                data.forEach(item => {
-                    if (!clinicSchedule[item.date]) clinicSchedule[item.date] = [];
-                    clinicSchedule[item.date].push(item.time);
-                });
-
-                dateSelect.innerHTML = '<option value="" class="text-slate-900">CHOOSE DATE</option>';
-                
-                Object.keys(clinicSchedule).forEach(dateStr => {
-                    const opt = document.createElement('option');
-                    opt.value = dateStr; 
-                    
-                    // MANUALLY PARSE DD/MM/YYYY TO PREVENT "INVALID DATE"
-                    const parts = dateStr.split('/');
-                    const day = parseInt(parts[0], 10);
-                    const month = parseInt(parts[1], 10) - 1; 
-                    const year = parseInt(parts[2], 10);
-                    const dateObj = new Date(year, month, day);
-                    
-                    opt.textContent = dateObj.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' }).toUpperCase();
-                    opt.className = "text-slate-900 font-bold";
-                    dateSelect.appendChild(opt);
-                });
-
-            } catch (error) {
-                console.error("Fetch Error:", error);
-                dateSelect.innerHTML = '<option value="" class="text-slate-900">UNABLE TO LOAD SLOTS</option>';
-            }
+    // Helper to clean that "1899" time string
+    function formatTime(timeStr) {
+        if (!timeStr) return "";
+        // If it's the long 1899 string, extract just the HH:MM
+        if (timeStr.includes("1899") || timeStr.includes(":")) {
+            const match = timeStr.match(/(\d{2}:\d{2})/);
+            return match ? match[1] : timeStr;
         }
+        return timeStr;
+    }
 
-        // 3. UI LOGIC (MENU & SCROLL)
-        btn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            menu.classList.toggle('active');
-            icon.classList.toggle('fa-bars');
-            icon.classList.toggle('fa-times');
-        });
-
-        document.addEventListener('click', (e) => {
-            if (!menu.contains(e.target) && !btn.contains(e.target)) {
-                menu.classList.remove('active');
-                icon.classList.add('fa-bars');
-                icon.classList.remove('fa-times');
-            }
-        });
-
-        function closeMenuAndScroll(sectionId) {
-            menu.classList.remove('active');
-            icon.classList.add('fa-bars');
-            icon.classList.remove('fa-times');
-            setTimeout(() => manualScroll(sectionId), 100);
-        }
-
-        function manualScroll(sectionId) {
-            const section = document.getElementById(sectionId);
-            if (section) {
-                const navHeight = 80;
-                const targetPosition = section.getBoundingClientRect().top + window.pageYOffset - navHeight;
-                window.scrollTo({ top: targetPosition, behavior: 'smooth' });
-            }
-        }
-
-        // 4. BOOKING LOGIC
-        dateSelect.addEventListener('change', function() {
-            const selectedDate = this.value;
-            timeSelect.innerHTML = '<option value="" class="text-slate-900">SELECT TIME</option>';
-            if (selectedDate && clinicSchedule[selectedDate]) {
-                timeSelect.disabled = false;
-                clinicSchedule[selectedDate].forEach(time => {
-                    const opt = document.createElement('option');
-                    opt.value = time;
-                    opt.textContent = time;
-                    opt.className = "text-slate-900 font-bold";
-                    timeSelect.appendChild(opt);
-                });
-            } else {
-                timeSelect.disabled = true;
-            }
-        });
-
-        bookingForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const submitBtn = document.getElementById('submit-btn');
-            submitBtn.textContent = "CONFIRMING...";
-            submitBtn.disabled = true;
-
-            const formData = new FormData(bookingForm);
-
-            fetch(API_URL, {
-                method: 'POST',
-                body: new URLSearchParams(formData)
-            })
-            .then(() => {
-                document.getElementById('booking-form-wrapper').classList.add('hidden');
-                document.getElementById('thank-you-page').style.display = 'block';
-                manualScroll('booking');
-            })
-            .catch(err => {
-                alert("Error! Please call +91 9969590101.");
-                submitBtn.disabled = false;
-                submitBtn.textContent = "CONFIRM APPOINTMENT";
+    async function loadClinicSchedule() {
+        try {
+            dateSelect.innerHTML = '<option value="">LOADING...</option>';
+            const response = await fetch(API_URL);
+            const data = await response.json();
+            
+            clinicSchedule = {};
+            data.forEach(item => {
+                // Keep the date string exactly as provided (e.g. 12/03/2026)
+                if (!clinicSchedule[item.date]) clinicSchedule[item.date] = [];
+                clinicSchedule[item.date].push(formatTime(item.time));
             });
-        });
 
-        window.addEventListener('DOMContentLoaded', loadClinicSchedule);
-    </script>
+            dateSelect.innerHTML = '<option value="">CHOOSE DATE</option>';
+            
+            Object.keys(clinicSchedule).forEach(dateStr => {
+                const opt = document.createElement('option');
+                opt.value = dateStr;
+                
+                // Manual Split to prevent "Invalid Date"
+                const parts = dateStr.split('/');
+                if(parts.length === 3) {
+                    const d = parseInt(parts[0]), m = parseInt(parts[1])-1, y = parseInt(parts[2]);
+                    const dateObj = new Date(y, m, d);
+                    opt.textContent = dateObj.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' }).toUpperCase();
+                } else {
+                    opt.textContent = dateStr; // Fallback
+                }
+                
+                opt.className = "text-slate-900 font-bold";
+                dateSelect.appendChild(opt);
+            });
+        } catch (e) {
+            dateSelect.innerHTML = '<option value="">OFFLINE</option>';
+        }
+    }
+
+    dateSelect.addEventListener('change', function() {
+        const slots = clinicSchedule[this.value] || [];
+        timeSelect.innerHTML = '<option value="">SELECT TIME</option>';
+        timeSelect.disabled = slots.length === 0;
+        slots.forEach(time => {
+            const opt = document.createElement('option');
+            opt.value = time;
+            opt.textContent = time;
+            opt.className = "text-slate-900 font-bold";
+            timeSelect.appendChild(opt);
+        });
+    });
+
+    bookingForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const btn = document.getElementById('submit-btn');
+        btn.textContent = "SENDING...";
+        btn.disabled = true;
+
+        fetch(API_URL, {
+            method: 'POST',
+            body: new URLSearchParams(new FormData(bookingForm))
+        })
+        .then(() => {
+            document.getElementById('booking-form-wrapper').classList.add('hidden');
+            document.getElementById('thank-you-page').style.display = 'block';
+            window.scrollTo({ top: document.getElementById('booking').offsetTop - 80, behavior: 'smooth' });
+        })
+        .catch(() => {
+            alert("Error! Call +91 9969590101");
+            btn.disabled = false;
+            btn.textContent = "Confirm Appointment";
+        });
+    });
+
+    // Simple Mobile Menu Logic
+    document.getElementById('menu-btn').addEventListener('click', () => {
+        document.getElementById('mobile-menu').classList.toggle('active');
+    });
+
+    window.addEventListener('DOMContentLoaded', loadClinicSchedule);
+</script>
 </body>
 </html>
