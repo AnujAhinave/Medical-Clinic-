@@ -292,41 +292,39 @@
     }
 
     async function loadClinicSchedule() {
-        try {
-            dateSelect.innerHTML = '<option value="">LOADING...</option>';
-            const response = await fetch(API_URL);
-            const data = await response.json();
-            
-            clinicSchedule = {};
-            data.forEach(item => {
-                // Keep the date string exactly as provided (e.g. 12/03/2026)
-                if (!clinicSchedule[item.date]) clinicSchedule[item.date] = [];
-                clinicSchedule[item.date].push(formatTime(item.time));
-            });
+    try {
+        dateSelect.innerHTML = '<option value="">LOADING...</option>';
+        // Using your new deployed URL
+        const API_URL = "https://script.google.com/macros/s/AKfycby8MbpEVNJJhataXlJAD1A-LGoh9uzU7XF_GawPT6MwQjQMSFsYQTMtljsYdjbUlKVsOA/exec";
+        
+        const response = await fetch(API_URL);
+        const data = await response.json();
+        
+        clinicSchedule = {};
 
-            dateSelect.innerHTML = '<option value="">CHOOSE DATE</option>';
+        data.forEach(item => {
+            // Your script now sends "date" and "time" in lowercase
+            let dateStr = item.date; 
+            if (!clinicSchedule[dateStr]) clinicSchedule[dateStr] = [];
             
-            Object.keys(clinicSchedule).forEach(dateStr => {
-                const opt = document.createElement('option');
-                opt.value = dateStr;
-                
-                // Manual Split to prevent "Invalid Date"
-                const parts = dateStr.split('/');
-                if(parts.length === 3) {
-                    const d = parseInt(parts[0]), m = parseInt(parts[1])-1, y = parseInt(parts[2]);
-                    const dateObj = new Date(y, m, d);
-                    opt.textContent = dateObj.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' }).toUpperCase();
-                } else {
-                    opt.textContent = dateStr; // Fallback
-                }
-                
-                opt.className = "text-slate-900 font-bold";
-                dateSelect.appendChild(opt);
-            });
-        } catch (e) {
-            dateSelect.innerHTML = '<option value="">OFFLINE</option>';
-        }
+            // Time is already formatted to 12hr (h:mm a) by your script!
+            clinicSchedule[dateStr].push(item.time);
+        });
+
+        dateSelect.innerHTML = '<option value="">CHOOSE DATE</option>';
+        Object.keys(clinicSchedule).forEach(date => {
+            const opt = document.createElement('option');
+            opt.value = date;
+            opt.textContent = date; 
+            opt.className = "text-slate-900 font-bold";
+            dateSelect.appendChild(opt);
+        });
+
+    } catch (e) {
+        console.error("Schedule Error:", e);
+        dateSelect.innerHTML = '<option value="">ERROR LOADING</option>';
     }
+}
 
     dateSelect.addEventListener('change', function() {
         const slots = clinicSchedule[this.value] || [];
