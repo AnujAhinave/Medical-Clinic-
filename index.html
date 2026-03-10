@@ -234,174 +234,155 @@
     </footer>
 
    <script>
+        // YOUR API URL
+        const API_URL = "https://script.google.com/macros/s/AKfycbxtHYshhupt8s-0-pEV0eorOMGFM1YgU9KSP0N8xtGLFVo71KkQDzvegg0eSn5pl5MwKQ/exec";
 
-const API_URL = "https://script.google.com/macros/s/AKfycbzAH68UHPkYslfKSaivvGwb-H7ZK_Y8ZDvsDiw1DGCNHUvW_0RNTvJmChViqgfbv4vNtA/exec";
+        const dateSelect = document.getElementById('doctor-date');
+        const timeSelect = document.getElementById('doctor-time');
+        const bookingForm = document.getElementById('clinic-booking-form');
+        const submitBtn = document.getElementById('submit-btn');
+        let clinicSchedule = {};
 
-const dateSelect = document.getElementById('doctor-date');
-const timeSelect = document.getElementById('doctor-time');
-const bookingForm = document.getElementById('clinic-booking-form');
-const submitBtn = document.getElementById('submit-btn');
+        const months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
 
-let clinicSchedule = {};
+        // 1. STRICT DATE FORMATTER (Forces "12 MAR 2026")
+        function formatAnyDate(dateInput) {
+            if (!dateInput) return "";
+            if (typeof dateInput === 'string' && dateInput.includes('/')) {
+                const parts = dateInput.split('/');
+                if (parts.length === 3) {
+                    const monthIndex = parseInt(parts[1], 10) - 1;
+                    return `${parts[0].padStart(2, '0')} ${months[monthIndex]} ${parts[2]}`;
+                }
+            }
+            const d = new Date(dateInput);
+            if (!isNaN(d)) {
+                return `${String(d.getDate()).padStart(2, '0')} ${months[d.getMonth()]} ${d.getFullYear()}`;
+            }
+            return dateInput.toUpperCase();
+        }
 
-async function loadClinicSchedule() {
+        // 2. NEW: TIME FORMATTER (Kills the "1899-12-30" Bug)
+        function formatTime(timeInput) {
+            if (!timeInput) return "";
+            // If Google sends the weird 1899 ISO string, convert it to 12-hour AM/PM
+            if (timeInput.toString().includes('1899') || timeInput.toString().includes('T')) {
+                const d = new Date(timeInput);
+                if (!isNaN(d)) {
+                    return d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
+                }
+            }
+            return timeInput.toString().toUpperCase();
+        }
 
-    try {
+        // 3. FETCH SCHEDULE
+        async function loadClinicSchedule() {
+            try {
+                dateSelect.innerHTML = '<option value="">LOADING...</option>';
+                const response = await fetch(API_URL);
+                const data = await response.json();
+                
+                clinicSchedule = {};
+                
+                data.forEach(item => {
+                    const cleanDate = formatAnyDate(item.date);
+                    const cleanTime = formatTime(item.time); // Applied the new time cleaner
 
-        dateSelect.innerHTML = '<option value="">LOADING...</option>';
+                    if (!clinicSchedule[cleanDate]) {
+                        clinicSchedule[cleanDate] = [];
+                    }
 
-        const response = await fetch(API_URL);
-        const data = await response.json();
-
-        clinicSchedule = {};
-
-        data.forEach(item => {
-
-            let cleanDate = item.date;
-
-            // Fix ISO date format from Google Script
-            if (typeof item.date === "string" && item.date.includes("T")) {
-
-                const dateObj = new Date(item.date);
-
-                cleanDate = dateObj.toLocaleDateString('en-GB', {
-                    day: '2-digit',
-                    month: 'short',
-                    year: 'numeric'
+                    clinicSchedule[cleanDate].push({ 
+                        time: cleanTime, 
+                        status: item.status || "available" 
+                    });
                 });
 
+                dateSelect.innerHTML = '<option value="">CHOOSE DATE</option>';
+                Object.keys(clinicSchedule).forEach(date => {
+                    const opt = document.createElement('option');
+                    opt.value = date;
+                    opt.textContent = date;
+                    dateSelect.appendChild(opt);
+                });
+            } catch (e) {
+                console.error("Fetch Error:", e);
+                dateSelect.innerHTML = '<option value="">OFFLINE</option>';
             }
+        }
 
-            if (!clinicSchedule[cleanDate]) {
-                clinicSchedule[cleanDate] = [];
-            }
-
-            clinicSchedule[cleanDate].push({
-                time: item.time,
-                status: item.status || "available"
-            });
-
-        });
-
-        dateSelect.innerHTML = '<option value="">CHOOSE DATE</option>';
-
-        Object.keys(clinicSchedule).forEach(date => {
-
-            const opt = document.createElement('option');
-            opt.value = date;
-            opt.textContent = date;
-
-            dateSelect.appendChild(opt);
-
-        });
-
-    } catch (error) {
-
-        console.error("Schedule Fetch Error:", error);
-
-        dateSelect.innerHTML = '<option value="">OFFLINE</option>';
-
-    }
-
-}
-
-
-dateSelect.addEventListener('change', function(e) {
-
-    const selectedDate = e.target.value;
-
-    timeSelect.innerHTML = '<option value="">SELECT TIME</option>';
-
-    if (selectedDate && clinicSchedule[selectedDate]) {
-
-        timeSelect.disabled = false;
-
-        clinicSchedule[selectedDate].forEach(slot => {
-
-            const opt = document.createElement('option');
-
-            opt.value = slot.time;
-
-            if (slot.status === "booked") {
-
-                opt.textContent = slot.time + " (BOOKED)";
-                opt.disabled = true;
-
+        // 4. HANDLE TIME SELECTION
+        dateSelect.addEventListener('change', (e) => {
+            const selectedDate = e.target.value;
+            timeSelect.innerHTML = '<option value="">SELECT TIME</option>';
+            
+            if (selectedDate && clinicSchedule[selectedDate]) {
+                timeSelect.disabled = false;
+                clinicSchedule[selectedDate].forEach(slot => {
+                    const opt = document.createElement('option');
+                    opt.value = slot.time;
+                    
+                    if (slot.status.toLowerCase() === 'booked') {
+                        opt.textContent = `${slot.time} (BOOKED)`;
+                        opt.disabled = true;
+                        opt.style.color = "#64748b"; // Slate-500
+                        opt.style.textDecoration = "line-through";
+                        opt.style.fontStyle = "italic";
+                    } else {
+                        opt.textContent = slot.time;
+                    }
+                    timeSelect.appendChild(opt);
+                });
             } else {
-
-                opt.textContent = slot.time;
-
+                timeSelect.disabled = true;
             }
-
-            timeSelect.appendChild(opt);
-
         });
 
-    } else {
+        // 5. INSTANT UI UPDATE ON SUBMIT
+        bookingForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            submitBtn.disabled = true;
+            submitBtn.textContent = "SENDING...";
 
-        timeSelect.disabled = true;
+            const formData = new FormData(bookingForm);
+            const selectedDate = formData.get('selected_date');
+            const selectedTime = formData.get('selected_time');
+            const params = new URLSearchParams(formData).toString();
 
-    }
+            try {
+                if (clinicSchedule[selectedDate]) {
+                    const slotIndex = clinicSchedule[selectedDate].findIndex(s => s.time === selectedTime);
+                    if (slotIndex > -1) clinicSchedule[selectedDate][slotIndex].status = "booked";
+                }
 
-});
-
-
-bookingForm.addEventListener('submit', async function(e) {
-
-    e.preventDefault();
-
-    submitBtn.disabled = true;
-    submitBtn.textContent = "SENDING...";
-
-    const formData = new FormData(bookingForm);
-    const params = new URLSearchParams(formData).toString();
-
-    try {
-
-        await fetch(`${API_URL}?${params}`, {
-            method: 'POST',
-            mode: 'no-cors'
+                await fetch(`${API_URL}?${params}`, { method: 'POST', mode: 'no-cors' });
+                
+                document.getElementById('booking-form-wrapper').style.display = 'none';
+                document.getElementById('thank-you-page').style.display = 'block';
+            } catch (err) {
+                console.error("Submission Error:", err);
+                document.getElementById('booking-form-wrapper').style.display = 'none';
+                document.getElementById('thank-you-page').style.display = 'block';
+            }
         });
 
-        document.getElementById('booking-form-wrapper').style.display = 'none';
-        document.getElementById('thank-you-page').style.display = 'block';
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
 
-    } catch (err) {
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+        });
 
-        document.getElementById('booking-form-wrapper').style.display = 'none';
-        document.getElementById('thank-you-page').style.display = 'block';
+        function manualScroll(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        }
 
-    }
+        function closeMenuAndScroll(id) {
+            mobileMenu.classList.remove('active');
+            manualScroll(id);
+        }
 
-});
-
-
-const menuBtn = document.getElementById('menu-btn');
-const mobileMenu = document.getElementById('mobile-menu');
-
-menuBtn.addEventListener('click', function(){
-    mobileMenu.classList.toggle('active');
-});
-
-
-function manualScroll(id) {
-
-    document.getElementById(id).scrollIntoView({
-        behavior: 'smooth'
-    });
-
-}
-
-function closeMenuAndScroll(id) {
-
-    mobileMenu.classList.remove('active');
-    manualScroll(id);
-
-}
-
-
-loadClinicSchedule();
-
-</script>
+        loadClinicSchedule();
+    </script>
 </body>
 </html>
