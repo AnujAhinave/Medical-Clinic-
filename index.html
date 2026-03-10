@@ -7,31 +7,46 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        html { scroll-behavior: smooth; }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+        
+        html { scroll-behavior: smooth; font-family: 'Inter', sans-serif; }
         .gradient-text { background: linear-gradient(90deg, #be185d, #6366f1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .unified-hero-bg { 
             background: linear-gradient(rgba(255,255,255,0.92), rgba(255,255,255,0.92)), 
             url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=60&w=1200'); 
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+            background-size: cover; background-position: center; background-attachment: fixed;
         }
         .hover-scale { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
         .hover-scale:hover { transform: translateY(-5px); }
-        #thank-you-page { display: none; }
-        .scroll-mt-20 { scroll-margin-top: 5rem; }
-        #mobile-menu {
-            display: none;
-            transform-origin: top right;
-            transition: all 0.2s ease-out;
-            opacity: 0;
-            transform: scale(0.95) translateY(-10px);
+        
+        /* Premium Dropdown Styling - FIXED FOR VISIBILITY */
+        select {
+            background-color: #1e293b !important; /* Dark background for the main box */
+            color: #ffffff !important;
+            font-family: 'Inter', sans-serif !important;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            padding: 15px;
         }
-        #mobile-menu.active {
-            display: block;
-            opacity: 1;
-            transform: scale(1) translateY(0);
+        
+        /* Force styling on the dropdown list items */
+        select option {
+            background-color: #ffffff !important; /* Force white background for the list */
+            color: #1e293b !important; /* Dark text so you can read it */
+            padding: 15px !important;
+            font-weight: bold;
         }
+
+        /* Specific styling for the 'Booked' items */
+        select option[disabled] {
+            color: #94a3b8 !important; /* Slate-400 (Light Gray) for disabled text */
+            font-style: italic;
+            text-decoration: line-through;
+            background-color: #f1f5f9 !important; /* Slight off-white background to differentiate */
+        }
+
+        select:focus { outline: 2px solid #be185d; border-color: transparent; }
+        #thank-you-page, #mobile-menu { display: none; }
     </style>
 </head>
 <body class="bg-slate-50 font-sans text-slate-900 antialiased">
@@ -140,7 +155,7 @@
                     <p class="text-slate-500 text-sm leading-relaxed mb-6">The 'Hollywood Glow' for instant skin brightening and pore refinement.</p>
                     <a href="treatments.html" class="text-pink-600 font-bold text-xs uppercase tracking-widest hover:underline">Learn More →</a>
                 </div>
-                </div>
+            </div>
         </div>
     </section>
 
@@ -177,15 +192,15 @@
                             <div class="relative">
                                 <i class="fas fa-calendar absolute left-6 top-1/2 -translate-y-1/2 text-pink-500/50"></i>
                                 <select id="doctor-date" name="selected_date" required 
-                                        class="w-full bg-white/10 border border-white/10 rounded-2xl pl-14 pr-6 py-5 text-white focus:border-pink-500 outline-none appearance-none uppercase text-[10px] font-black tracking-widest">
-                                    <option value="" class="bg-slate-900 text-white">CHOOSE DATE</option>
+                                        class="w-full border border-white/10 rounded-2xl pl-14 pr-6 py-5 outline-none appearance-none uppercase text-[10px] font-black tracking-widest">
+                                    <option value="">CHOOSE DATE</option>
                                 </select>
                             </div>
                             <div class="relative">
                                 <i class="fas fa-clock absolute left-6 top-1/2 -translate-y-1/2 text-pink-500/50"></i>
                                 <select id="doctor-time" name="selected_time" disabled required 
-                                        class="w-full bg-white/10 border border-white/10 rounded-2xl pl-14 pr-6 py-5 text-white focus:border-pink-500 outline-none appearance-none disabled:opacity-30 uppercase text-[10px] font-black tracking-widest">
-                                    <option value="" class="bg-slate-900 text-white">SELECT TIME</option>
+                                        class="w-full border border-white/10 rounded-2xl pl-14 pr-6 py-5 outline-none appearance-none disabled:opacity-30 uppercase text-[10px] font-black tracking-widest">
+                                    <option value="">SELECT TIME</option>
                                 </select>
                             </div>
                         </div>
@@ -207,6 +222,15 @@
                     <h3 class="text-4xl font-black text-white uppercase tracking-tighter">Slot Reserved</h3>
                     <p class="text-slate-400 mt-6 text-sm tracking-widest font-bold">DR. RESHMA WILL SEE YOU SOON</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white text-center">
+        <h2 class="text-3xl font-black text-slate-900 uppercase tracking-tight mb-16">Find Us in Ambarnath</h2>
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="rounded-[3rem] overflow-hidden shadow-2xl border-8 border-slate-50">
+                <iframe src="https://maps.google.com/maps?q=Ambarnath%20East&t=&z=14&ie=UTF8&iwloc=&output=embed" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
     </section>
@@ -233,9 +257,9 @@
         </div>
     </footer>
 
-   <script>
+    <script>
         // YOUR API URL
-        const API_URL = "https://script.google.com/macros/s/AKfycbxtHYshhupt8s-0-pEV0eorOMGFM1YgU9KSP0N8xtGLFVo71KkQDzvegg0eSn5pl5MwKQ/exec";
+        const API_URL = "https://script.google.com/macros/s/AKfycbyrtDk0ZrHCLN5z8GcA4L1jvGpmXD0GFPAraskh2uZNVoMZnUNodkD0sZwbn1G4K8ucEQ/exec";
 
         const dateSelect = document.getElementById('doctor-date');
         const timeSelect = document.getElementById('doctor-time');
@@ -262,10 +286,9 @@
             return dateInput.toUpperCase();
         }
 
-        // 2. NEW: TIME FORMATTER (Kills the "1899-12-30" Bug)
+        // 2. TIME FORMATTER (Kills the "1899-12-30" Bug)
         function formatTime(timeInput) {
             if (!timeInput) return "";
-            // If Google sends the weird 1899 ISO string, convert it to 12-hour AM/PM
             if (timeInput.toString().includes('1899') || timeInput.toString().includes('T')) {
                 const d = new Date(timeInput);
                 if (!isNaN(d)) {
@@ -286,7 +309,7 @@
                 
                 data.forEach(item => {
                     const cleanDate = formatAnyDate(item.date);
-                    const cleanTime = formatTime(item.time); // Applied the new time cleaner
+                    const cleanTime = formatTime(item.time); 
 
                     if (!clinicSchedule[cleanDate]) {
                         clinicSchedule[cleanDate] = [];
@@ -325,9 +348,6 @@
                     if (slot.status.toLowerCase() === 'booked') {
                         opt.textContent = `${slot.time} (BOOKED)`;
                         opt.disabled = true;
-                        opt.style.color = "#64748b"; // Slate-500
-                        opt.style.textDecoration = "line-through";
-                        opt.style.fontStyle = "italic";
                     } else {
                         opt.textContent = slot.time;
                     }
