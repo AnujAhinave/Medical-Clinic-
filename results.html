@@ -3,98 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Results & Case Studies | Dr. Reshma's Clinic</title>
+    <title>Results & Case Studies | Dr. Akanksha's Skinnovation</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+        html { scroll-behavior: smooth; font-family: 'Inter', sans-serif; }
         .gradient-text { background: linear-gradient(90deg, #be185d, #6366f1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .hover-scale { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
         .hover-scale:hover { transform: translateY(-5px); }
-        /* Add this to your existing <style> block */
-#mobile-menu {
-    display: none;
-    transform-origin: top right;
-    transition: all 0.2s ease-out;
-    opacity: 0;
-    transform: scale(0.95) translateY(-10px);
-}
-#mobile-menu.active {
-    display: block;
-    opacity: 1;
-    transform: scale(1) translateY(0);
-}
+        
+        #mobile-menu {
+            display: none;
+            transform-origin: top right;
+            transition: all 0.2s ease-out;
+            opacity: 0;
+            transform: scale(0.95) translateY(-10px);
+        }
+        #mobile-menu.active {
+            display: block !important;
+            opacity: 1;
+            transform: scale(1) translateY(0);
+        }
     </style>
 </head>
 <body class="bg-slate-50 font-sans text-slate-900 antialiased">
 
     <nav class="bg-white/95 backdrop-blur-md border-b border-slate-100 sticky top-0 z-50 shadow-sm">
-    <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between relative">
-        <div class="flex items-center gap-3">
-            <a href="index.html" class="flex items-center gap-3">
-                <div class="w-10 h-10 bg-pink-600 rounded-xl flex items-center justify-center text-white shadow-lg shadow-pink-200">
-                    <i class="fas fa-hand-holding-medical text-xl"></i>
-                </div>
-                <div class="flex flex-col">
-                    <span class="font-black text-xl tracking-tighter uppercase text-slate-900 leading-none">
-                        Dr. Reshma's <span class="text-pink-600 italic">Clinic</span>
-                    </span>
-                    <span class="text-[9px] font-bold tracking-[0.3em] text-slate-400 uppercase mt-1">Ambarnath East</span>
-                </div>
-            </a>
-        </div>
-
-        <div class="hidden lg:flex items-center gap-8 text-[11px] font-black uppercase tracking-widest text-slate-500">
-            <a href="index.html" class="hover:text-pink-600 transition-colors">Home</a>
-            <a href="about.html" class="hover:text-pink-600 transition-colors">About</a>
-            <a href="treatments.html" class="hover:text-pink-600 transition-colors">Treatments</a>
-            <a href="results.html" class="hover:text-pink-600 transition-colors">Results</a>
-        </div>
-
-        <div class="flex items-center gap-3">
-            <a href="index.html#booking" class="bg-pink-600 text-white px-5 py-2.5 rounded-full font-bold hover:bg-pink-700 shadow-lg shadow-pink-200 text-xs transition-all">
-                Book Now
-            </a>
-            
-            <button id="menu-btn" class="lg:hidden text-slate-900 focus:outline-none p-2 bg-slate-50 rounded-lg border border-slate-200">
-                <i class="fas fa-bars text-xl" id="menu-icon"></i>
-            </button>
-        </div>
-
-        <div id="mobile-menu" class="absolute top-20 right-6 w-48 bg-white border border-slate-100 rounded-2xl shadow-2xl p-2 z-[60]">
-            <div class="flex flex-col text-[11px] font-black uppercase tracking-widest text-slate-600">
-                <a href="index.html" class="hover:bg-pink-50 hover:text-pink-600 p-3 rounded-xl transition-colors flex items-center gap-3">
-                    <i class="fas fa-home w-4"></i> Home
-                </a>
-                <a href="about.html" class="hover:bg-pink-50 hover:text-pink-600 p-3 rounded-xl flex items-center gap-3">
-                    <i class="fas fa-user w-4"></i> About
-                </a>
-                <a href="treatments.html" class="hover:bg-pink-50 hover:text-pink-600 p-3 rounded-xl transition-colors flex items-center gap-3">
-                    <i class="fas fa-stethoscope w-4"></i> Treatments
-                </a>
-                <a href="results.html" class="hover:bg-pink-50 hover:text-pink-600 p-3 rounded-xl transition-colors flex items-center gap-3">
-                    <i class="fas fa-star w-4"></i> Results
-                </a>
-                <div class="h-[1px] bg-slate-100 my-1"></div>
-                <a href="tel:9969590101" class="text-pink-600 p-3 flex items-center gap-3">
-                    <i class="fas fa-phone-alt w-4"></i> Call
+        <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between relative">
+            <div class="flex items-center gap-3">
+                <a href="index.html" class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-pink-600 rounded-xl flex items-center justify-center text-white shadow-lg shadow-pink-200">
+                        <i class="fas fa-hand-holding-medical text-xl"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-black text-xl tracking-tighter uppercase text-slate-900 leading-none">
+                            Dr. Akanksha's <span class="text-pink-600 italic">Skinnovation</span>
+                        </span>
+                        <span class="text-[9px] font-bold tracking-[0.3em] text-slate-400 uppercase mt-1">Kalyan West</span>
+                    </div>
                 </a>
             </div>
+
+            <div class="hidden lg:flex items-center gap-8 text-[11px] font-black uppercase tracking-widest text-slate-500">
+                <a href="index.html" class="hover:text-pink-600 transition-colors">Home</a>
+                <a href="index.html#about" class="hover:text-pink-600 transition-colors">About</a>
+                <a href="index.html#treatments" class="hover:text-pink-600 transition-colors">Treatments</a>
+                <a href="results.html" class="hover:text-pink-600 transition-colors">Results</a>
+            </div>
+
+            <div class="flex items-center gap-3">
+                <a href="index.html#booking" class="bg-pink-600 text-white px-5 py-2.5 rounded-full font-bold hover:bg-pink-700 shadow-lg shadow-pink-200 text-xs transition-all">
+                    Book Now
+                </a>
+                <button id="menu-btn" class="lg:hidden text-slate-900 focus:outline-none p-2 bg-slate-50 rounded-lg border border-slate-200">
+                    <i class="fas fa-bars text-xl" id="menu-icon"></i>
+                </button>
+            </div>
+
+            <div id="mobile-menu" class="absolute top-20 right-6 w-48 bg-white border border-slate-100 rounded-2xl shadow-2xl p-2 z-[60]">
+                <div class="flex flex-col text-[11px] font-black uppercase tracking-widest text-slate-600">
+                    <a href="index.html" class="hover:bg-pink-50 hover:text-pink-600 p-3 rounded-xl transition-colors flex items-center gap-3">
+                        <i class="fas fa-home w-4"></i> Home
+                    </a>
+                    <a href="index.html#about" class="hover:bg-pink-50 hover:text-pink-600 p-3 rounded-xl flex items-center gap-3">
+                        <i class="fas fa-user w-4"></i> About
+                    </a>
+                    <a href="index.html#treatments" class="hover:bg-pink-50 hover:text-pink-600 p-3 rounded-xl transition-colors flex items-center gap-3">
+                        <i class="fas fa-stethoscope w-4"></i> Treatments
+                    </a>
+                    <a href="results.html" class="hover:bg-pink-50 hover:text-pink-600 p-3 rounded-xl transition-colors flex items-center gap-3">
+                        <i class="fas fa-star w-4"></i> Results
+                    </a>
+                    <div class="h-[1px] bg-slate-100 my-1"></div>
+                    <a href="tel:9167453795" class="text-pink-600 p-3 flex items-center gap-3">
+                        <i class="fas fa-phone-alt w-4"></i> Call
+                    </a>
+                </div>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
 
     <section class="py-12 bg-white border-b border-slate-100">
         <div class="max-w-5xl mx-auto px-6 flex flex-col md:flex-row items-center gap-8 text-center md:text-left">
             <div class="md:w-1/4">
                 <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?q=80&w=400" 
-                     class="rounded-full w-32 h-32 object-cover border-4 border-pink-50 mx-auto shadow-lg" alt="Dr. Reshma">
+                     class="rounded-full w-32 h-32 object-cover border-4 border-pink-50 mx-auto shadow-lg" alt="Dr. Akanksha">
             </div>
             <div class="md:w-3/4">
-                <h1 class="text-3xl font-black text-slate-900 leading-none">Dr. Reshma S. Verma</h1>
-                <p class="text-pink-600 font-black text-[10px] uppercase tracking-[0.2em] mt-3">BHMS • P.G.D.E.M.S • C.C.H • Reg: 46591</p>
-                <p class="text-slate-500 text-sm italic mt-2 font-medium">Cosmetologist • Trichologist • Dietician</p>
+                <h1 class="text-3xl font-black text-slate-900 leading-none">Dr. Akanksha V. Ugale</h1>
+                <p class="text-pink-600 font-black text-[10px] uppercase tracking-[0.2em] mt-3">M.B.B.S • D.D.V • Reg: 2019/08/5856</p>
+                <p class="text-slate-500 text-sm italic mt-2 font-medium">Skin Specialist • Trichologist • Cosmetologist</p>
                 <div class="h-1 w-12 bg-slate-200 my-4 mx-auto md:mx-0"></div>
-                <p class="text-slate-400 text-[10px] uppercase font-bold tracking-widest">Ambarnath's First Laser Skin Care Center</p>
+                <p class="text-slate-400 text-[10px] uppercase font-bold tracking-widest">Kalyan's Advanced Laser Skin Care Center</p>
             </div>
         </div>
     </section>
@@ -103,7 +104,7 @@
         <div class="max-w-6xl mx-auto px-6">
             <div class="text-center mb-16">
                 <h2 class="text-4xl font-black text-slate-900 uppercase tracking-tight">Clinical Case Studies</h2>
-                <p class="text-slate-400 mt-2 italic text-sm">Real Results. Proven Expertise.</p>
+                <p class="text-slate-400 mt-2 italic text-sm">Visible Results. Professional Care.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
@@ -111,65 +112,57 @@
                 <div class="bg-white p-6 rounded-[2.5rem] shadow-xl shadow-slate-200/50 border border-white hover-scale">
                     <div class="grid grid-cols-2 gap-4 mb-6">
                         <div class="relative rounded-2xl overflow-hidden aspect-square bg-slate-100">
-                            <img src="https://cdn.prod.website-files.com/66fabe2847e9b74451668843/67fcdae89fe4d67467dd3b95_Laser%20Tattoo%20Removal%20Healing%20Process.jpg" class="w-full h-full object-cover grayscale" alt="Tattoo ">
-                            <span class="absolute top-3 left-3 bg-black/70 text-white text-[9px] px-2 py-1 rounded font-black"></span>
+                            <img src="https://cdn.prod.website-files.com/66fabe2847e9b74451668843/67fcdae89fe4d67467dd3b95_Laser%20Tattoo%20Removal%20Healing%20Process.jpg" class="w-full h-full object-cover grayscale" alt="Tattoo Before">
                         </div>
                         <div class="relative rounded-2xl overflow-hidden aspect-square bg-slate-100">
-                            <img src="https://www.laserskinsurgery.com/wp-content/uploads/2020/05/Laser-tattoo-removal-New-York-City-NYC-2.jpeg" class="w-full h-full object-cover" alt="Tattoo ">
-                            <span class="absolute top-3 left-3 bg-pink-600 text-white text-[9px] px-2 py-1 rounded font-black"></span>
+                            <img src="https://www.laserskinsurgery.com/wp-content/uploads/2020/05/Laser-tattoo-removal-New-York-City-NYC-2.jpeg" class="w-full h-full object-cover" alt="Tattoo After">
                         </div>
                     </div>
-                    <span class="text-pink-600 font-bold text-[10px] uppercase tracking-widest italic">The Wedding Prep</span>
-                    <h3 class="text-2xl font-black text-slate-900 mt-1 mb-2 tracking-tighter uppercase">Laser Tattoo Removal</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed">90% ink clearance achieved for a flawless bridal look.</p>
+                    <span class="text-pink-600 font-bold text-[10px] uppercase tracking-widest italic">Aesthetic Surgery</span>
+                    <h3 class="text-2xl font-black text-slate-900 mt-1 mb-2 tracking-tighter uppercase">Laser Treatment</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">Significant ink clearance achieved through advanced laser technology.</p>
                 </div>
 
                 <div class="bg-white p-6 rounded-[2.5rem] shadow-xl shadow-slate-200/50 border border-white hover-scale">
                     <div class="grid grid-cols-2 gap-4 mb-6">
                         <div class="relative rounded-2xl overflow-hidden aspect-square bg-slate-100">
-                            <img src="https://www.cultbeauty.com/images?url=https://static.thcdn.com/productimg/original/13926898-1065263444571574.jpg&format=webp&auto=avif&width=1200&height=1200&fit=cover" class="w-full h-full object-cover grayscale" alt="Scalp ">
-                            <span class="absolute top-3 left-3 bg-black/70 text-white text-[9px] px-2 py-1 rounded font-black"></span>
+                            <img src="https://www.cultbeauty.com/images?url=https://static.thcdn.com/productimg/original/13926898-1065263444571574.jpg&format=webp&auto=avif&width=1200&height=1200&fit=cover" class="w-full h-full object-cover grayscale" alt="Scalp Before">
                         </div>
                         <div class="relative rounded-2xl overflow-hidden aspect-square bg-slate-100">
-                            <img src="https://actandacre.co.uk/cdn/shop/files/2715423_02_600x.jpg?v=1732046217" class="w-full h-full object-cover" alt="Scalp ">
-                            <span class="absolute top-3 left-3 bg-pink-600 text-white text-[9px] px-2 py-1 rounded font-black"></span>
+                            <img src="https://actandacre.co.uk/cdn/shop/files/2715423_02_600x.jpg?v=1732046217" class="w-full h-full object-cover" alt="Scalp After">
                         </div>
                     </div>
-                    <span class="text-pink-600 font-bold text-[10px] uppercase tracking-widest italic">Vacation Confidence</span>
-                    <h3 class="text-2xl font-black text-slate-900 mt-1 mb-2 tracking-tighter uppercase">Scalp Detox Therapy</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed">Complete removal of stubborn flakes and restoration of scalp health.</p>
+                    <span class="text-pink-600 font-bold text-[10px] uppercase tracking-widest italic">Trichology Expert</span>
+                    <h3 class="text-2xl font-black text-slate-900 mt-1 mb-2 tracking-tighter uppercase">Advance Scalp Therapy</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">Successful treatment of stubborn dandruff and restoration of scalp health.</p>
                 </div>
 
                 <div class="bg-white p-6 rounded-[2.5rem] shadow-xl shadow-slate-200/50 border border-white hover-scale">
                     <div class="grid grid-cols-2 gap-4 mb-6">
                         <div class="relative rounded-2xl overflow-hidden aspect-square bg-slate-100">
-                            <img src="https://skinlogicaesthetics.co.uk/wp-content/uploads/Carbon-laser-Peel-ba2-768x745.jpg" alt="Acne ">
-                            <span class="absolute top-3 left-3 bg-black/70 text-white text-[9px] px-2 py-1 rounded font-black"></span>
+                            <img src="https://skinlogicaesthetics.co.uk/wp-content/uploads/Carbon-laser-Peel-ba2-768x745.jpg" class="w-full h-full object-cover grayscale" alt="Skin Before">
                         </div>
                         <div class="relative rounded-2xl overflow-hidden aspect-square bg-slate-100">
-                            <img src="https://bodyvie.com/wp-content/uploads/2019/09/acne.jpg" class="w-full h-full object-cover" alt="Acne ">
-                            <span class="absolute top-3 left-3 bg-pink-600 text-white text-[9px] px-2 py-1 rounded font-black"></span>
+                            <img src="https://bodyvie.com/wp-content/uploads/2019/09/acne.jpg" class="w-full h-full object-cover" alt="Skin After">
                         </div>
                     </div>
-                    <span class="text-pink-600 font-bold text-[10px] uppercase tracking-widest italic">Interview Ready</span>
-                    <h3 class="text-2xl font-black text-slate-900 mt-1 mb-2 tracking-tighter uppercase">Carbon Laser Peel</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed">Significant reduction in active acne for a professional corporate edge.</p>
+                    <span class="text-pink-600 font-bold text-[10px] uppercase tracking-widest italic">Skin Specialist</span>
+                    <h3 class="text-2xl font-black text-slate-900 mt-1 mb-2 tracking-tighter uppercase">Medical Dermatology</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">Targeted treatment for active acne and improved skin texture.</p>
                 </div>
 
                 <div class="bg-white p-6 rounded-[2.5rem] shadow-xl shadow-slate-200/50 border border-white hover-scale">
                     <div class="grid grid-cols-2 gap-4 mb-6">
                         <div class="relative rounded-2xl overflow-hidden aspect-square bg-slate-100">
-                            <img src="https://www.drpaulsonline.com/wp-content/uploads/2022/05/1-1.jpg" class="w-full h-full object-cover grayscale" alt="Hair ">
-                            <span class="absolute top-3 left-3 bg-black/70 text-white text-[9px] px-2 py-1 rounded font-black"></span>
+                            <img src="https://www.drpaulsonline.com/wp-content/uploads/2022/05/1-1.jpg" class="w-full h-full object-cover grayscale" alt="Hair Before">
                         </div>
                         <div class="relative rounded-2xl overflow-hidden aspect-square bg-slate-100">
-                            <img src="https://ik.imagekit.io/jmtrc6fzf/wp-content/uploads/2020/01/female-hair-transplant-results-jaipur.jpg" class="w-full h-full object-cover" alt="Hair ">
-                            <span class="absolute top-3 left-3 bg-pink-600 text-white text-[9px] px-2 py-1 rounded font-black"></span>
+                            <img src="https://ik.imagekit.io/jmtrc6fzf/wp-content/uploads/2020/01/female-hair-transplant-results-jaipur.jpg" class="w-full h-full object-cover" alt="Hair After">
                         </div>
                     </div>
-                    <span class="text-pink-600 font-bold text-[10px] uppercase tracking-widest italic">New Mom Recovery</span>
-                    <h3 class="text-2xl font-black text-slate-900 mt-1 mb-2 tracking-tighter uppercase">Hair Restoration</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed">Conservative care to reverse hair thinning postpartum.</p>
+                    <span class="text-pink-600 font-bold text-[10px] uppercase tracking-widest italic">Hair Restoration</span>
+                    <h3 class="text-2xl font-black text-slate-900 mt-1 mb-2 tracking-tighter uppercase">Follicle Recovery</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">Visible density improvement through medical-grade hair loss solutions.</p>
                 </div>
 
             </div>
@@ -182,13 +175,14 @@
                 <div class="w-8 h-8 bg-pink-600 rounded-lg flex items-center justify-center text-white text-xs">
                     <i class="fas fa-hand-holding-medical"></i>
                 </div>
-                <span class="font-black text-lg tracking-tighter uppercase">Dr. Reshma's <span class="text-pink-600 italic">Clinic</span></span>
+                <span class="font-black text-lg tracking-tighter uppercase">Dr. Akanksha's <span class="text-pink-600 italic">Skinnovation</span></span>
             </div>
             <p class="text-slate-500 text-[10px] uppercase tracking-[0.4em]">
-                © 2026 Dr. Reshma's Skin, Hair & Aesthetic Clinic | Ambarnath East
+                © 2026 Skinnovation Skin & Hair Clinic | Kalyan West
             </p>
         </div>
     </footer>
+
 <script>
     const btn = document.getElementById('menu-btn');
     const menu = document.getElementById('mobile-menu');
@@ -197,15 +191,17 @@
     btn.addEventListener('click', (e) => {
         e.stopPropagation();
         menu.classList.toggle('active');
-        icon.classList.toggle('fa-bars');
-        icon.classList.toggle('fa-times');
+        if (menu.classList.contains('active')) {
+            icon.classList.replace('fa-bars', 'fa-times');
+        } else {
+            icon.classList.replace('fa-times', 'fa-bars');
+        }
     });
 
     document.addEventListener('click', (e) => {
         if (!menu.contains(e.target) && !btn.contains(e.target)) {
             menu.classList.remove('active');
-            icon.classList.add('fa-bars');
-            icon.classList.remove('fa-times');
+            icon.classList.replace('fa-times', 'fa-bars');
         }
     });
 </script>
