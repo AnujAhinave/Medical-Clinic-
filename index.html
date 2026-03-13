@@ -45,7 +45,7 @@
 
         select:focus { outline: 2px solid #be185d; border-color: transparent; }
         
-        /* --- MOBILE MENU FIXES --- */
+        /* Mobile Menu Fixes */
         #thank-you-page { display: none; }
         
         #mobile-menu {
@@ -60,6 +60,19 @@
             display: block !important;
             opacity: 1;
             transform: scale(1) translateY(0);
+        }
+
+        /* Testimonial Styling */
+        .testimonial-card { position: relative; overflow: hidden; }
+        .testimonial-card::before {
+            content: "\f10d";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            font-size: 80px;
+            color: rgba(219, 39, 119, 0.05);
         }
     </style>
 </head>
@@ -193,6 +206,95 @@
     </div>
 </section>
 
+<section id="results" class="py-32 bg-slate-50 scroll-mt-20">
+    <div class="max-w-6xl mx-auto px-6">
+        <h2 class="text-4xl font-black text-slate-900 uppercase tracking-tight mb-20">Clinical Results</h2>
+        <div class="grid md:grid-cols-2 gap-12">
+            <div class="group bg-white p-6 rounded-[3.5rem] shadow-xl shadow-slate-200/60 border border-white hover-scale">
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="relative rounded-[2.5rem] overflow-hidden aspect-[4/5] bg-slate-100">
+                        <img src="https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?w=400" class="w-full h-full object-cover grayscale-[0.5]" alt="Before">
+                    </div>
+                    <div class="relative rounded-[2.5rem] overflow-hidden aspect-[4/5] bg-slate-100">
+                        <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?w=400" class="w-full h-full object-cover" alt="After">
+                    </div>
+                </div>
+                <h4 class="mt-8 px-4 font-black text-2xl text-slate-900 uppercase tracking-tighter">Laser Tattoo Clearance</h4>
+            </div>
+            <div class="group bg-white p-6 rounded-[3.5rem] shadow-xl shadow-slate-200/60 border border-white hover-scale">
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="relative rounded-[2.5rem] overflow-hidden aspect-[4/5] bg-slate-100">
+                        <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400" class="w-full h-full object-cover grayscale-[0.5]" alt="Before">
+                    </div>
+                    <div class="relative rounded-[2.5rem] overflow-hidden aspect-[4/5] bg-slate-100">
+                        <img src="https://images.unsplash.com/photo-1600948836101-f9ffda59d250?w=400" class="w-full h-full object-cover" alt="After">
+                    </div>
+                </div>
+                <h4 class="mt-8 px-4 font-black text-2xl text-slate-900 uppercase tracking-tighter">Scalp Detox Therapy</h4>
+            </div>
+        </div>
+        <div class="mt-16 text-center">
+            <a href="results.html" class="bg-slate-900 text-white px-10 py-5 rounded-2xl font-black uppercase tracking-widest hover:bg-slate-800 transition shadow-lg inline-block">View Full Gallery</a>
+        </div>
+    </div>
+</section>
+
+<section class="py-32 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4">
+            <div>
+                <span class="text-pink-600 font-black text-[10px] uppercase tracking-[0.3em]">Voices of trust</span>
+                <h2 class="text-4xl font-black text-slate-900 uppercase tracking-tight mt-2">What Our Patients Say</h2>
+            </div>
+            <div class="flex items-center gap-2 text-yellow-400 text-xl">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <span class="text-slate-400 text-sm font-bold ml-2">4.9/5 Google Rating</span>
+            </div>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="testimonial-card bg-slate-50 p-10 rounded-[2.5rem] border border-slate-100 hover-scale">
+                <p class="text-slate-600 italic leading-relaxed mb-8 relative z-10">
+                    "I was worried about tattoo removal pain, but Dr. Reshma made the process so comfortable. The results after 3 sessions are incredible."
+                </p>
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center font-black text-pink-600">A</div>
+                    <div>
+                        <h5 class="font-black text-slate-900 text-sm uppercase">Anjali Sharma</h5>
+                        <p class="text-[10px] text-slate-400 font-bold uppercase">Tattoo Removal Patient</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card bg-slate-50 p-10 rounded-[2.5rem] border border-slate-100 hover-scale">
+                <p class="text-slate-600 italic leading-relaxed mb-8 relative z-10">
+                    "The Carbon Laser Peel is like magic for oily skin. I got an instant glow for my sister's wedding. Best aesthetic clinic in Ambarnath East."
+                </p>
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center font-black text-pink-600">R</div>
+                    <div>
+                        <h5 class="font-black text-slate-900 text-sm uppercase">Rahul Verma</h5>
+                        <p class="text-[10px] text-slate-400 font-bold uppercase">Carbon Peel Patient</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card bg-slate-50 p-10 rounded-[2.5rem] border border-slate-100 hover-scale">
+                <p class="text-slate-600 italic leading-relaxed mb-8 relative z-10">
+                    "Excellent doctor who actually listens. My scalp dandruff issue was solved in just a month. Very professional care."
+                </p>
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center font-black text-pink-600">P</div>
+                    <div>
+                        <h5 class="font-black text-slate-900 text-sm uppercase">Priya Nair</h5>
+                        <p class="text-[10px] text-slate-400 font-bold uppercase">Trichology Patient</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section id="booking" class="py-32 bg-slate-900 scroll-mt-20">
     <div class="max-w-3xl mx-auto px-6">
         <div id="booking-container" class="bg-white/5 backdrop-blur-xl rounded-[3.5rem] border border-white/10 p-12 shadow-2xl">
@@ -258,6 +360,15 @@
     </div>
 </section>
 
+<section class="py-20 bg-white text-center">
+    <h2 class="text-3xl font-black uppercase mb-16">Find Us in Ambarnath</h2>
+    <div class="max-w-6xl mx-auto px-6">
+        <div class="rounded-[3rem] overflow-hidden shadow-2xl border-8 border-slate-50">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3767.874139832267!2d73.1942152!3d19.1983944!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7930055555555%3A0x7d979d9c8c9c9c9c!2sAmbarnath%20East!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </div>
+</section>
+
 <footer class="bg-[#0a1128] text-white py-24">
     <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-16 text-center md:text-left">
         <div>
@@ -293,7 +404,7 @@
 
     let clinicSchedule = {};
 
-    // 1. MOBILE MENU LOGIC (FIXED)
+    // 1. MOBILE MENU LOGIC
     menuBtn.addEventListener('click', (e) => {
         e.stopPropagation();
         mobileMenu.classList.toggle('active');
