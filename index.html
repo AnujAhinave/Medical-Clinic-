@@ -93,11 +93,11 @@
         </div>
 
         <div class="hidden lg:flex items-center gap-8 text-[11px] font-black uppercase tracking-widest text-slate-500">
-    <a href="index.html" class="hover:text-pink-600 transition-colors">Home</a>
-    <a href="about.html" class="hover:text-pink-600 transition-colors">About</a>
-    <a href="treatments.html" class="hover:text-pink-600 transition-colors">Treatments</a>
-    <a href="results.html" class="hover:text-pink-600 transition-colors">Results</a>
-</div>
+            <a href="index.html" class="hover:text-pink-600 transition-colors">Home</a>
+            <a href="about.html" class="hover:text-pink-600 transition-colors">About</a>
+            <a href="treatments.html" class="hover:text-pink-600 transition-colors">Treatments</a>
+            <a href="results.html" class="hover:text-pink-600 transition-colors">Results</a>
+        </div>
 
         <div class="flex items-center gap-3">
             <a href="#booking" class="bg-pink-600 text-white px-5 py-2.5 rounded-full font-bold hover:bg-pink-700 shadow-lg shadow-pink-200 text-xs transition-all">
@@ -282,8 +282,6 @@
                 referrerpolicy="no-referrer-when-downgrade">
             </iframe>
         </div>
-        
-        
     </div>
 </section>
 
@@ -343,7 +341,6 @@
         }
     });
 
-    // ORIGINAL DATA FETCHING LOGIC RESTORED
     const months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
 
     function formatAnyDate(dateInput) {
@@ -366,24 +363,60 @@
         return timeInput.toString().toUpperCase();
     }
 
+    /* --- UPDATED FILTERING LOGIC --- */
     async function loadClinicSchedule() {
         try {
             dateSelect.innerHTML = '<option value="">LOADING...</option>';
             const response = await fetch(API_URL);
-            const data = await response.json();
+            const rawData = await response.json();
+            
+            // Handle if rawData is an object {slots:[], settings:{}} or just an array []
+            const data = Array.isArray(rawData) ? rawData : rawData.slots;
+            const settings = rawData.settings || { mode: '7' }; // Default fallback
+
             clinicSchedule = {};
+            const today = new Date();
+            today.setHours(0,0,0,0);
+            
+            // Define Visibility Window
+            let startDate = today;
+            let endDate = new Date();
+
+            if (settings.mode === '7') {
+                endDate.setDate(today.getDate() + 7);
+            } else if (settings.mode === '14') {
+                endDate.setDate(today.getDate() + 14);
+            } else if (settings.mode === 'custom') {
+                startDate = new Date(settings.start);
+                endDate = new Date(settings.end);
+            }
+
             data.forEach(item => {
-                const cleanDate = formatAnyDate(item.date);
-                const cleanTime = formatTime(item.time); 
-                if (!clinicSchedule[cleanDate]) clinicSchedule[cleanDate] = [];
-                clinicSchedule[cleanDate].push({ time: cleanTime, status: item.status || "available" });
+                const slotDateObj = new Date(item.date);
+                slotDateObj.setHours(0,0,0,0);
+
+                // Apply the Booking Window Filter
+                if (slotDateObj >= startDate && slotDateObj <= endDate) {
+                    const cleanDate = formatAnyDate(item.date);
+                    const cleanTime = formatTime(item.time); 
+                    if (!clinicSchedule[cleanDate]) clinicSchedule[cleanDate] = [];
+                    clinicSchedule[cleanDate].push({ time: cleanTime, status: item.status || "available" });
+                }
             });
+
             dateSelect.innerHTML = '<option value="">CHOOSE DATE</option>';
-            Object.keys(clinicSchedule).forEach(date => {
-                const opt = document.createElement('option');
-                opt.value = date; opt.textContent = date; dateSelect.appendChild(opt);
-            });
+            const datesFound = Object.keys(clinicSchedule);
+            
+            if (datesFound.length === 0) {
+                dateSelect.innerHTML = '<option value="">NO SLOTS AVAILABLE</option>';
+            } else {
+                datesFound.forEach(date => {
+                    const opt = document.createElement('option');
+                    opt.value = date; opt.textContent = date; dateSelect.appendChild(opt);
+                });
+            }
         } catch (e) {
+            console.error(e);
             dateSelect.innerHTML = '<option value="">OFFLINE</option>';
         }
     }
