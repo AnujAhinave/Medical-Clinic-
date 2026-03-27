@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>32 Watts Dental Clinic | Dr. Priyanka Jain | Ghatkopar East</title>
+    
+    <link rel="icon" type="image/png" href="images (1).png">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
-        
         html { scroll-behavior: smooth; font-family: 'Inter', sans-serif; }
         
         /* 32 Watts Branding */
@@ -46,7 +48,6 @@
             opacity: 0;
             transform: scale(0.95) translateY(-10px);
         }
-
         #mobile-menu.active { display: block !important; opacity: 1; transform: scale(1) translateY(0); }
     </style>
 </head>
@@ -62,14 +63,15 @@
                 <span class="font-extrabold text-xl tracking-tight uppercase text-gray-900 leading-none">
                     32 Watts <span class="text-[#00C8D7]">Dental</span>
                 </span>
+                <span class="text-[8px] font-bold tracking-[0.3em] text-gray-400 uppercase mt-1">Ghatkopar East</span>
             </div>
         </a>
 
         <div class="hidden lg:flex items-center gap-8 text-[11px] font-bold uppercase tracking-widest text-gray-500">
             <a href="index.html" class="text-[#00C8D7]">Home</a>
-            <a href="about.html" class="hover:text-[#00C8D7] transition-colors">About Stylist</a>
-            <a href="treatments.html" class="hover:text-[#00C8D7] transition-colors">Services</a>
-            <a href="results.html" class="hover:text-[#00C8D7] transition-colors">Client Stories</a>
+            <a href="about.html" class="hover:text-[#00C8D7] transition-colors">About Doctor</a>
+            <a href="treatments.html" class="hover:text-[#00C8D7] transition-colors">Treatments</a>
+            <a href="results.html" class="hover:text-[#00C8D7] transition-colors">Results</a>
         </div>
 
         <div class="flex items-center gap-3">
@@ -81,12 +83,12 @@
 
         <div id="mobile-menu" class="absolute top-20 right-6 w-48 bg-white border border-gray-100 rounded-xl shadow-2xl p-2 z-[60]">
             <div class="flex flex-col text-[11px] font-bold uppercase tracking-widest text-gray-600">
-                <a href="index.html" class="hover:bg-gray-50 text-[#00C8D7] p-3 rounded-lg flex items-center gap-3"><i class="fas fa-home w-4"></i> Home</a>
-                <a href="about.html" class="hover:bg-gray-50 hover:text-[#00C8D7] p-3 rounded-lg flex items-center gap-3"><i class="fas fa-user-md w-4"></i> About</a>
-                <a href="treatments.html" class="hover:bg-gray-50 hover:text-[#00C8D7] p-3 rounded-lg flex items-center gap-3"><i class="fas fa-notes-medical w-4"></i> Services</a>
-                <a href="results.html" class="hover:bg-gray-50 hover:text-[#00C8D7] p-3 rounded-lg flex items-center gap-3"><i class="fas fa-star w-4"></i> Stories</a>
+                <a href="index.html" class="p-3 rounded-lg flex items-center gap-3"><i class="fas fa-home w-4 text-[#00C8D7]"></i> Home</a>
+                <a href="about.html" class="p-3 rounded-lg flex items-center gap-3"><i class="fas fa-user-md w-4 text-[#00C8D7]"></i> About</a>
+                <a href="treatments.html" class="p-3 rounded-lg flex items-center gap-3"><i class="fas fa-notes-medical w-4 text-[#00C8D7]"></i> Treatments</a>
+                <a href="results.html" class="p-3 rounded-lg flex items-center gap-3"><i class="fas fa-star w-4 text-[#00C8D7]"></i> Results</a>
                 <div class="h-[1px] bg-gray-100 my-1"></div>
-                <a href="#booking" class="text-[#00C8D7] p-3 flex items-center gap-3"><i class="fas fa-calendar-check w-4"></i> Book Now</a>
+                <a href="#booking" class="text-[#00C8D7] p-3 flex items-center gap-3 font-bold">Book Now</a>
             </div>
         </div>
     </div>
@@ -201,7 +203,7 @@
                     <i class="fas fa-check"></i>
                 </div>
                 <h3 class="text-4xl font-black text-white uppercase tracking-tighter">Slot Reserved</h3>
-                <p class="text-slate-400 mt-6 text-sm tracking-widest font-bold">DR. PRIYANKA WILL SEE YOU SOON</p>
+                <p class="text-slate-400 mt-6 text-sm tracking-widest font-bold uppercase">DR. PRIYANKA WILL SEE YOU SOON</p>
             </div>
         </div>
     </div>
@@ -225,24 +227,27 @@
 </footer>
 
 <script>
-    // Copy/Paste your specific API_URL from the Skinnovation script here
-    const API_URL = "YOUR_APPS_SCRIPT_URL_HERE"; 
+    const btn = document.getElementById('menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    const icon = document.getElementById('menu-icon');
 
-    const dateSelect = document.getElementById('doctor-date');
-    const bookingForm = document.getElementById('clinic-booking-form');
-    const submitBtn = document.getElementById('submit-btn');
-    const menuBtn = document.getElementById('menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const menuIcon = document.getElementById('menu-icon');
-
-    // Menu Logic
-    menuBtn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('active');
-        menuIcon.classList.toggle('fa-bars');
-        menuIcon.classList.toggle('fa-times');
+    btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menu.classList.toggle('active');
+        icon.classList.toggle('fa-bars');
+        icon.classList.toggle('fa-times');
     });
 
-    // Date Logic (Simple version for demo - link your actual loadClinicSchedule() function here)
+    document.addEventListener('click', (e) => {
+        if (!menu.contains(e.target) && !btn.contains(e.target)) {
+            menu.classList.remove('active');
+            icon.classList.add('fa-bars');
+            icon.classList.remove('fa-times');
+        }
+    });
+
+    // Date Logic simple population
+    const dateSelect = document.getElementById('doctor-date');
     const populateDates = () => {
         for(let i=0; i<7; i++) {
             let d = new Date();
@@ -255,13 +260,12 @@
     }
     populateDates();
 
-    // Form Submit Logic
+    const bookingForm = document.getElementById('clinic-booking-form');
+    const submitBtn = document.getElementById('submit-btn');
     bookingForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         submitBtn.disabled = true;
         submitBtn.textContent = "PROCESSING...";
-        
-        // This simulates the fetch to your Google Script
         setTimeout(() => {
             document.getElementById('booking-form-wrapper').style.display = 'none';
             document.getElementById('thank-you-page').style.display = 'block';
