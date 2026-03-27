@@ -46,14 +46,14 @@
         </a>
 
         <div class="hidden lg:flex items-center gap-8 text-[11px] font-bold uppercase tracking-widest text-gray-500">
-            <a href="index.html" class="text-[#00C8D7]">Home</a>
-            <a href="about.html" class="hover:text-[#00C8D7] transition-colors">About Stylist</a>
-            <a href="treatments.html" class="hover:text-[#00C8D7] transition-colors">Services</a>
-            <a href="results.html" class="hover:text-[#00C8D7] transition-colors">Client Stories</a>
+            <a href="index.html" class="hover:text-[#00C8D7] transition-colors">Home</a>
+            <a href="about.html" class="hover:text-[#00C8D7] transition-colors">About Dr. Priyanka</a>
+            <a href="treatments.html" class="hover:text-[#00C8D7] transition-colors">Treatments</a>
+            <a href="results.html" class="hover:text-[#00C8D7] transition-colors">Results</a>
         </div>
 
         <div class="flex items-center gap-3">
-            <a href="#booking" class="bg-black text-white px-6 py-2.5 rounded-md font-bold hover:bg-[#00C8D7] transition-colors text-xs uppercase tracking-widest shadow-lg">Book Slot</a>
+            <a href="index.html#booking" class="bg-black text-white px-6 py-2.5 rounded-md font-bold hover:bg-[#00C8D7] transition-colors text-xs uppercase tracking-widest shadow-lg">Book Appointment</a>
             <button id="menu-btn" class="lg:hidden text-gray-900 focus:outline-none p-2 bg-gray-50 rounded-md">
                 <i class="fas fa-bars text-xl" id="menu-icon"></i>
             </button>
@@ -61,12 +61,12 @@
 
         <div id="mobile-menu" class="absolute top-20 right-6 w-48 bg-white border border-gray-100 rounded-xl shadow-2xl p-2 z-[60]">
             <div class="flex flex-col text-[11px] font-bold uppercase tracking-widest text-gray-600">
-                <a href="index.html" class="hover:bg-gray-50 text-[#00C8D7] p-3 rounded-lg flex items-center gap-3"><i class="fas fa-home w-4"></i> Home</a>
-                <a href="about.html" class="hover:bg-gray-50 hover:text-[#00C8D7] p-3 rounded-lg flex items-center gap-3"><i class="fas fa-user-md w-4"></i> About</a>
-                <a href="treatments.html" class="hover:bg-gray-50 hover:text-[#00C8D7] p-3 rounded-lg flex items-center gap-3"><i class="fas fa-notes-medical w-4"></i> Services</a>
-                <a href="results.html" class="hover:bg-gray-50 hover:text-[#00C8D7] p-3 rounded-lg flex items-center gap-3"><i class="fas fa-star w-4"></i> Stories</a>
+                <a href="index.html" class="p-3 rounded-lg flex items-center gap-3"><i class="fas fa-home w-4 text-[#00C8D7]"></i> Home</a>
+                <a href="about.html" class="p-3 rounded-lg flex items-center gap-3"><i class="fas fa-user-md w-4 text-[#00C8D7]"></i> About</a>
+                <a href="treatments.html" class="p-3 rounded-lg flex items-center gap-3"><i class="fas fa-notes-medical w-4 text-[#00C8D7]"></i> Treatments</a>
+                <a href="results.html" class="p-3 rounded-lg flex items-center gap-3"><i class="fas fa-star w-4 text-[#00C8D7]"></i> Results</a>
                 <div class="h-[1px] bg-gray-100 my-1"></div>
-                <a href="#booking" class="text-[#00C8D7] p-3 flex items-center gap-3"><i class="fas fa-calendar-check w-4"></i> Book Now</a>
+                <a href="index.html#booking" class="text-[#00C8D7] p-3 flex items-center gap-3 font-bold">Book Now</a>
             </div>
         </div>
     </div>
@@ -193,5 +193,26 @@
             }
         });
     </script>
+
+    <script>
+    const btn = document.getElementById('menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    const icon = document.getElementById('menu-icon');
+
+    btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menu.classList.toggle('active');
+        icon.classList.toggle('fa-bars');
+        icon.classList.toggle('fa-times');
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!menu.contains(e.target) && !btn.contains(e.target)) {
+            menu.classList.remove('active');
+            icon.classList.add('fa-bars');
+            icon.classList.remove('fa-times');
+        }
+    });
+</script>
 </body>
 </html>
