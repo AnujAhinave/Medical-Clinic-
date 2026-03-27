@@ -3,47 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. Akanksha V. Ugale | Skinnovation Skin & Hair Clinic</title>
+    <title>32 Watts Dental Clinic | Dr. Priyanka Jain | Ghatkopar East</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
         
         html { scroll-behavior: smooth; font-family: 'Inter', sans-serif; }
-        .gradient-text { background: linear-gradient(90deg, #be185d, #6366f1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        /* 32 Watts Branding */
+        .text-electric { color: #00C8D7; }
+        .bg-electric { background-color: #00C8D7; }
+        .gradient-text { background: linear-gradient(90deg, #00C8D7, #2C3E50); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        /* Unified Hero with Dental Background */
         .unified-hero-bg { 
-            background: linear-gradient(rgba(255,255,255,0.92), rgba(255,255,255,0.92)), 
+            background: linear-gradient(rgba(255,255,255,0.95), rgba(255,255,255,0.95)), 
             url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=60&w=1200'); 
             background-size: cover; background-position: center; background-attachment: fixed;
         }
+
         .hover-scale { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
         .hover-scale:hover { transform: translateY(-5px); }
         
-        /* Premium Dropdown Styling */
+        /* Premium Dropdown Styling (Dark Mode Form) */
         select {
             background-color: #1e293b !important;
             color: #ffffff !important;
-            font-family: 'Inter', sans-serif !important;
-            letter-spacing: 0.05em;
-            cursor: pointer;
             padding: 15px;
         }
         
-        select option {
-            background-color: #ffffff !important;
-            color: #1e293b !important;
-            padding: 15px !important;
-            font-weight: bold;
-        }
-
-        select option[disabled] {
-            color: #94a3b8 !important;
-            font-style: italic;
-            text-decoration: line-through;
-            background-color: #f1f5f9 !important;
-        }
-
-        select:focus { outline: 2px solid #be185d; border-color: transparent; }
+        select option { background-color: #ffffff !important; color: #1e293b !important; font-weight: bold; }
+        select option[disabled] { color: #94a3b8 !important; background-color: #f1f5f9 !important; }
+        select:focus { outline: 2px solid #00C8D7; }
         
         #thank-you-page { display: none; }
         
@@ -55,23 +47,7 @@
             transform: scale(0.95) translateY(-10px);
         }
 
-        #mobile-menu.active {
-            display: block !important;
-            opacity: 1;
-            transform: scale(1) translateY(0);
-        }
-
-        .testimonial-card { position: relative; overflow: hidden; }
-        .testimonial-card::before {
-            content: "\f10d";
-            font-family: "Font Awesome 6 Free";
-            font-weight: 900;
-            position: absolute;
-            top: -10px;
-            right: 20px;
-            font-size: 80px;
-            color: rgba(219, 39, 119, 0.05);
-        }
+        #mobile-menu.active { display: block !important; opacity: 1; transform: scale(1) translateY(0); }
     </style>
 </head>
 <body class="bg-slate-50 font-sans text-slate-900 antialiased">
@@ -79,53 +55,37 @@
 <nav class="bg-white/95 backdrop-blur-md border-b border-slate-100 sticky top-0 z-50 shadow-sm">
     <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between relative">
         <div class="flex items-center gap-3">
-            <a href="index.html" class="flex items-center gap-3">
-                <div class="w-10 h-10 bg-pink-600 rounded-xl flex items-center justify-center text-white shadow-lg shadow-pink-200">
-                    <i class="fas fa-hand-holding-medical text-xl"></i>
+            <a href="#" class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-electric rounded-xl flex items-center justify-center text-white shadow-lg shadow-cyan-200">
+                    <i class="fas fa-tooth text-xl"></i>
                 </div>
                 <div class="flex flex-col">
                     <span class="font-black text-xl tracking-tighter uppercase text-slate-900 leading-none">
-                        Dr. Akanksha's <span class="text-pink-600 italic">Skinnovation</span>
+                        32 Watts <span class="text-electric italic">Dental</span>
                     </span>
-                    <span class="text-[9px] font-bold tracking-[0.3em] text-slate-400 uppercase mt-1">Kalyan West</span>
+                    <span class="text-[9px] font-bold tracking-[0.3em] text-slate-400 uppercase mt-1">Ghatkopar East</span>
                 </div>
             </a>
         </div>
 
         <div class="hidden lg:flex items-center gap-8 text-[11px] font-black uppercase tracking-widest text-slate-500">
-            <a href="index.html" class="hover:text-pink-600 transition-colors">Home</a>
-            <a href="about.html" class="hover:text-pink-600 transition-colors">About</a>
-            <a href="treatments.html" class="hover:text-pink-600 transition-colors">Treatments</a>
-            <a href="results.html" class="hover:text-pink-600 transition-colors">Results</a>
+            <a href="#" class="hover:text-electric transition-colors">Home</a>
+            <a href="#about" class="hover:text-electric transition-colors">About</a>
+            <a href="#treatments" class="hover:text-electric transition-colors">Treatments</a>
+            <a href="#booking" class="bg-electric text-white px-5 py-2.5 rounded-full font-bold shadow-lg shadow-cyan-100 text-xs transition-all">Book Now</a>
         </div>
 
-        <div class="flex items-center gap-3">
-            <a href="#booking" class="bg-pink-600 text-white px-5 py-2.5 rounded-full font-bold hover:bg-pink-700 shadow-lg shadow-pink-200 text-xs transition-all">
-                Book Now
-            </a>
-            <button id="menu-btn" class="lg:hidden text-slate-900 focus:outline-none p-2 bg-slate-50 rounded-lg border border-slate-200">
-                <i class="fas fa-bars text-xl" id="menu-icon"></i>
-            </button>
-        </div>
+        <button id="menu-btn" class="lg:hidden text-slate-900 p-2 bg-slate-50 rounded-lg border border-slate-200">
+            <i class="fas fa-bars text-xl" id="menu-icon"></i>
+        </button>
 
         <div id="mobile-menu" class="absolute top-20 right-6 w-48 bg-white border border-slate-100 rounded-2xl shadow-2xl p-2 z-[60]">
             <div class="flex flex-col text-[11px] font-black uppercase tracking-widest text-slate-600">
-                <a href="index.html" class="hover:bg-pink-50 hover:text-pink-600 p-3 rounded-xl transition-colors flex items-center gap-3">
-                    <i class="fas fa-home w-4"></i> Home
-                </a>
-                <a href="about.html" class="hover:bg-pink-50 hover:text-pink-600 p-3 rounded-xl flex items-center gap-3">
-                    <i class="fas fa-user w-4"></i> About
-                </a>
-                <a href="treatments.html" class="hover:bg-pink-50 hover:text-pink-600 p-3 rounded-xl transition-colors flex items-center gap-3">
-                    <i class="fas fa-stethoscope w-4"></i> Treatments
-                </a>
-                <a href="results.html" class="hover:bg-pink-50 hover:text-pink-600 p-3 rounded-xl transition-colors flex items-center gap-3">
-                    <i class="fas fa-star w-4"></i> Results
-                </a>
+                <a href="#" class="p-3 rounded-xl flex items-center gap-3"><i class="fas fa-home w-4"></i> Home</a>
+                <a href="#about" class="p-3 rounded-xl flex items-center gap-3"><i class="fas fa-user-md w-4"></i> About</a>
+                <a href="#treatments" class="p-3 rounded-xl flex items-center gap-3"><i class="fas fa-notes-medical w-4"></i> Services</a>
                 <div class="h-[1px] bg-slate-100 my-1"></div>
-                <a href="tel:9167453795" class="text-pink-600 p-3 flex items-center gap-3">
-                    <i class="fas fa-phone-alt w-4"></i> Call
-                </a>
+                <a href="tel:9167453795" class="text-electric p-3 flex items-center gap-3"><i class="fas fa-phone-alt w-4"></i> Call</a>
             </div>
         </div>
     </div>
@@ -135,39 +95,32 @@
     <div class="max-w-6xl mx-auto px-6 text-center lg:text-left">
         <div class="flex flex-col lg:flex-row items-center justify-between gap-16">
             <div class="w-full lg:w-3/5 order-2 lg:order-1">
-                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-pink-50 border border-pink-100 mb-6">
-                    <span class="w-2 h-2 rounded-full bg-pink-500 animate-pulse"></span>
-                    <span class="text-pink-600 font-black tracking-widest text-[10px] uppercase">Skin & Hair Expert</span>
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-50 border border-cyan-100 mb-6">
+                    <span class="w-2 h-2 rounded-full bg-electric animate-pulse"></span>
+                    <span class="text-electric font-black tracking-widest text-[10px] uppercase">RCT & Cosmetic Expert</span>
                 </div>
                 <h1 class="text-5xl md:text-7xl font-black text-slate-900 leading-[1.05] tracking-tight mb-8">
-                    Advanced Aesthetic Care in <span class="gradient-text uppercase">Kalyan</span>
+                    Powering Bright Smiles in <span class="gradient-text uppercase">Ghatkopar</span>
                 </h1>
                 <p class="text-slate-600 text-lg md:text-xl font-medium italic mb-10 leading-relaxed max-w-2xl">
-                    "Skin Specialist, Trichologist, and Cosmetologist providing world-class skin and hair solutions."
+                    "Specialized in Painless Root Canals and Cosmetic Smile Designs using world-class dental technology."
                 </p>
                 <div class="flex flex-col sm:flex-row items-center gap-6">
-                    <a href="https://wa.me/919167453795" target="_blank" class="w-full sm:w-auto bg-green-600 text-white px-10 py-5 rounded-2xl font-black flex items-center justify-center gap-3 hover-scale shadow-xl shadow-green-100 transition">
-                        <i class="fab fa-whatsapp text-2xl"></i> Chat Consultation
-                    </a>
-                    <a href="results.html" class="w-full sm:w-auto bg-white text-slate-900 border-2 border-slate-200 px-10 py-5 rounded-2xl font-black hover:bg-slate-50 transition uppercase text-sm tracking-widest shadow-sm flex items-center justify-center">
-                        View Case Studies
+                    <a href="#booking" class="w-full sm:w-auto bg-electric text-white px-10 py-5 rounded-2xl font-black flex items-center justify-center gap-3 hover-scale shadow-xl shadow-cyan-100 transition uppercase tracking-widest text-xs">
+                        Book Appointment
                     </a>
                 </div>
             </div>
 
             <div class="w-full lg:w-2/5 flex flex-col items-center order-1 lg:order-2">
-                <div class="relative w-56 h-56 md:w-72 md:h-72 mb-8">
-                    <div class="absolute inset-0 bg-gradient-to-tr from-pink-500 to-indigo-500 rounded-full blur-2xl opacity-10 animate-pulse"></div>
-                    <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=400" alt="Dr. Akanksha V. Ugale" class="relative w-full h-full rounded-full border-8 border-white shadow-2xl object-cover">
+                <div class="relative w-56 h-56 md:w-72 md:h-72 mb-8 group">
+                    <div class="absolute inset-0 bg-cyan-400 rounded-full blur-2xl opacity-10 group-hover:opacity-25 transition duration-500"></div>
+                    <img src="https://raw.githubusercontent.com/AnujAhinave/Medical-Clinic-/main/1.png" 
+                         alt="Dr. Priyanka Jain" class="relative w-full h-full rounded-full border-8 border-white shadow-2xl object-cover transition-transform group-hover:scale-[1.03]">
                 </div>
                 <div class="text-center">
-                    <h2 class="text-3xl font-black text-slate-900">Dr. Akanksha V. Ugale</h2>
-                    <p class="text-[10px] text-slate-400 uppercase font-black tracking-[0.3em] mt-3">M.B.B.S., D.D.V. (Board Certified Dermatologist)</p>
-                    <div class="flex flex-wrap justify-center gap-2 mt-6">
-                        <span class="bg-white/80 px-3 py-1.5 rounded-lg border border-slate-200 text-[10px] font-black shadow-sm uppercase">Skin Specialist</span>
-                        <span class="bg-white/80 px-3 py-1.5 rounded-lg border border-slate-200 text-[10px] font-black shadow-sm uppercase">Trichologist</span>
-                        <span class="bg-white/80 px-3 py-1.5 rounded-lg border border-slate-200 text-[10px] font-black text-pink-700 shadow-sm">Reg: 2019/08/5856</span>
-                    </div>
+                    <h2 class="text-3xl font-black text-slate-900">Dr. Priyanka Jain</h2>
+                    <p class="text-[10px] text-slate-400 uppercase font-black tracking-[0.3em] mt-3">RCT Specialist • Cosmetic Dentist • B.D.S</p>
                 </div>
             </div>
         </div>
@@ -177,27 +130,27 @@
 <section id="treatments" class="py-32 bg-white scroll-mt-20">
     <div class="max-w-6xl mx-auto px-6">
         <div class="text-center mb-20">
-            <h2 class="text-4xl font-black text-slate-900 uppercase tracking-tight">Kalyan's Advanced Cosmetology Center</h2>
-            <p class="text-slate-400 mt-2">Specialized in Skin, Hair, Nail, and Aesthetic Surgery</p>
+            <h2 class="text-4xl font-black text-slate-900 uppercase tracking-tight">Advanced Multi-Specialty Dental Center</h2>
+            <p class="text-slate-400 mt-2">Powering smiles with compassion and high-tech care</p>
         </div>
         <div class="grid md:grid-cols-3 gap-10">
             <div class="p-10 rounded-[3rem] bg-slate-50 border border-slate-100 hover-scale">
-                <div class="w-12 h-12 bg-pink-100 text-pink-600 rounded-xl flex items-center justify-center mb-6"><i class="fas fa-spa"></i></div>
-                <h4 class="font-black text-xl mb-4 uppercase">Facial Aesthetics</h4>
-                <p class="text-slate-500 text-sm leading-relaxed mb-6">Expert facial rejuvenation treatments for a natural and youthful glow.</p>
-                <a href="#booking" class="text-pink-600 font-bold text-xs uppercase tracking-widest hover:underline">Book Now →</a>
+                <div class="w-12 h-12 bg-cyan-100 text-electric rounded-xl flex items-center justify-center mb-6"><i class="fas fa-microscope"></i></div>
+                <h4 class="font-black text-xl mb-4 uppercase">Painless RCT</h4>
+                <p class="text-slate-500 text-sm leading-relaxed mb-6">Expert root canal treatments using rotary endodontics for a faster, zero-pain experience.</p>
+                <a href="#booking" class="text-electric font-bold text-xs uppercase tracking-widest hover:underline">Request Slot →</a>
             </div>
             <div class="p-10 rounded-[3rem] bg-slate-50 border border-slate-100 hover-scale">
-                <div class="w-12 h-12 bg-pink-100 text-pink-600 rounded-xl flex items-center justify-center mb-6"><i class="fas fa-cut"></i></div>
-                <h4 class="font-black text-xl mb-4 uppercase">Skin Surgery</h4>
-                <p class="text-slate-500 text-sm leading-relaxed mb-6">Safe and surgical removal of moles, warts, and other skin growths.</p>
-                <a href="#booking" class="text-pink-600 font-bold text-xs uppercase tracking-widest hover:underline">Book Now →</a>
+                <div class="w-12 h-12 bg-cyan-100 text-electric rounded-xl flex items-center justify-center mb-6"><i class="fas fa-magic"></i></div>
+                <h4 class="font-black text-xl mb-4 uppercase">Smile Makeover</h4>
+                <p class="text-slate-500 text-sm leading-relaxed mb-6">Veneers, laminates, and whitening procedures designed for natural, invisible perfection.</p>
+                <a href="#booking" class="text-electric font-bold text-xs uppercase tracking-widest hover:underline">Request Slot →</a>
             </div>
             <div class="p-10 rounded-[3rem] bg-slate-50 border border-slate-100 hover-scale">
-                <div class="w-12 h-12 bg-pink-100 text-pink-600 rounded-xl flex items-center justify-center mb-6"><i class="fas fa-vial"></i></div>
-                <h4 class="font-black text-xl mb-4 uppercase">Advance Cosmetology</h4>
-                <p class="text-slate-500 text-sm leading-relaxed mb-6">Medical-grade solutions for complex hair and scalp issues.</p>
-                <a href="#booking" class="text-pink-600 font-bold text-xs uppercase tracking-widest hover:underline">Book Now →</a>
+                <div class="w-12 h-12 bg-cyan-100 text-electric rounded-xl flex items-center justify-center mb-6"><i class="fas fa-bolt"></i></div>
+                <h4 class="font-black text-xl mb-4 uppercase">Dental Implants</h4>
+                <p class="text-slate-500 text-sm leading-relaxed mb-6">Premium implantology solutions to restore functionality and aesthetic confidence.</p>
+                <a href="#booking" class="text-electric font-bold text-xs uppercase tracking-widest hover:underline">Request Slot →</a>
             </div>
         </div>
     </div>
@@ -208,252 +161,111 @@
         <div id="booking-container" class="bg-white/5 backdrop-blur-xl rounded-[3.5rem] border border-white/10 p-12 shadow-2xl">
             <div id="booking-form-wrapper">
                 <h3 class="text-4xl font-black text-white text-center uppercase mb-12 tracking-tighter">
-                    Request <span class="text-pink-500 italic">Appointment</span>
+                    Request <span class="text-electric italic">Slot</span>
                 </h3>
                 <form id="clinic-booking-form" class="grid grid-cols-1 gap-8">
                     <div class="relative group">
-                        <i class="fas fa-user absolute left-6 top-1/2 -translate-y-1/2 text-pink-500/50"></i>
-                        <input type="text" name="firstName" placeholder="FULL NAME" required 
-                               class="w-full bg-white/10 border border-white/10 rounded-2xl pl-14 pr-6 py-5 text-white focus:border-pink-500 outline-none transition uppercase text-[10px] font-black tracking-widest placeholder:text-slate-500">
+                        <i class="fas fa-user absolute left-6 top-1/2 -translate-y-1/2 text-electric/50"></i>
+                        <input type="text" name="firstName" placeholder="PATIENT NAME" required 
+                               class="w-full bg-white/10 border border-white/10 rounded-2xl pl-14 pr-6 py-5 text-white focus:border-electric outline-none transition uppercase text-[10px] font-black tracking-widest placeholder:text-slate-500">
                     </div>
                     
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                         <div class="relative">
-                            <i class="fas fa-phone absolute left-6 top-1/2 -translate-y-1/2 text-pink-500/50"></i>
-                            <input type="tel" name="phone" placeholder="MOBILE NUMBER" required 
-                                   class="w-full bg-white/10 border border-white/10 rounded-2xl pl-14 pr-6 py-5 text-white focus:border-pink-500 outline-none transition uppercase text-[10px] font-black tracking-widest">
+                            <i class="fas fa-phone absolute left-6 top-1/2 -translate-y-1/2 text-electric/50"></i>
+                            <input type="tel" name="phone" placeholder="CONTACT NUMBER" required 
+                                   class="w-full bg-white/10 border border-white/10 rounded-2xl pl-14 pr-6 py-5 text-white focus:border-electric outline-none transition uppercase text-[10px] font-black tracking-widest">
                         </div>
                         <div class="relative">
-                            <i class="fas fa-envelope absolute left-6 top-1/2 -translate-y-1/2 text-pink-500/50"></i>
-                            <input type="email" name="email" placeholder="EMAIL ADDRESS" required 
-                                   class="w-full bg-white/10 border border-white/10 rounded-2xl pl-14 pr-6 py-5 text-white focus:border-pink-500 outline-none transition uppercase text-[10px] font-black tracking-widest">
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <div class="relative">
-                            <i class="fas fa-calendar absolute left-6 top-1/2 -translate-y-1/2 text-pink-500/50"></i>
+                            <i class="fas fa-calendar absolute left-6 top-1/2 -translate-y-1/2 text-electric/50"></i>
                             <select id="doctor-date" name="selected_date" required 
                                     class="w-full border border-white/10 rounded-2xl pl-14 pr-6 py-5 outline-none appearance-none uppercase text-[10px] font-black tracking-widest">
                                 <option value="">CHOOSE DATE</option>
                             </select>
                         </div>
-                        <div class="relative">
-                            <i class="fas fa-clock absolute left-6 top-1/2 -translate-y-1/2 text-pink-500/50"></i>
-                            <select id="doctor-time" name="selected_time" disabled required 
-                                    class="w-full border border-white/10 rounded-2xl pl-14 pr-6 py-5 outline-none appearance-none disabled:opacity-30 uppercase text-[10px] font-black tracking-widest">
-                                <option value="">SELECT TIME</option>
-                            </select>
-                        </div>
                     </div>
 
-                    <textarea name="description" placeholder="BRIEFLY DESCRIBE YOUR CONCERN..." required rows="3"
-                              class="w-full bg-white/10 border border-white/10 rounded-2xl px-6 py-5 text-white focus:border-pink-500 outline-none transition uppercase text-[10px] font-black tracking-widest placeholder:text-slate-500"></textarea>
+                    <textarea name="description" placeholder="DESCRIBE YOUR DENTAL CONCERN (E.G., PAIN, CLEANING, RCT)..." required rows="3"
+                              class="w-full bg-white/10 border border-white/10 rounded-2xl px-6 py-5 text-white focus:border-electric outline-none transition uppercase text-[10px] font-black tracking-widest placeholder:text-slate-500"></textarea>
 
                     <button type="submit" id="submit-btn" 
-                            class="w-full bg-pink-600 text-white font-black py-6 rounded-2xl hover:bg-white hover:text-pink-600 transition-all duration-500 uppercase mt-6 shadow-2xl shadow-pink-900/40 tracking-[0.4em] text-[10px]">
+                            class="w-full bg-electric text-white font-black py-6 rounded-2xl hover:bg-white hover:text-slate-900 transition-all duration-500 uppercase mt-6 shadow-2xl shadow-cyan-900/40 tracking-[0.4em] text-[10px]">
                         Confirm Appointment
                     </button>
                 </form>
             </div>
 
             <div id="thank-you-page" class="hidden text-center py-10">
-                <div class="w-24 h-24 bg-pink-500 rounded-full flex items-center justify-center text-white text-5xl mx-auto mb-8 animate-bounce shadow-xl shadow-pink-500/20">
+                <div class="w-24 h-24 bg-electric rounded-full flex items-center justify-center text-white text-5xl mx-auto mb-8 animate-bounce shadow-xl shadow-cyan-500/20">
                     <i class="fas fa-check"></i>
                 </div>
                 <h3 class="text-4xl font-black text-white uppercase tracking-tighter">Slot Reserved</h3>
-                <p class="text-slate-400 mt-6 text-sm tracking-widest font-bold">DR. AKANKSHA WILL SEE YOU SOON</p>
+                <p class="text-slate-400 mt-6 text-sm tracking-widest font-bold">DR. PRIYANKA WILL SEE YOU SOON</p>
             </div>
-        </div>
-    </div>
-</section>
-
-<section class="py-20 bg-white text-center">
-    <h2 class="text-3xl font-black uppercase mb-16 tracking-tighter">Visit Us in <span class="text-pink-600">Kalyan</span></h2>
-    <div class="max-w-6xl mx-auto px-6">
-        <div class="rounded-[3rem] overflow-hidden shadow-2xl border-8 border-slate-50 transition-transform hover:scale-[1.01] duration-500">
-            <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4286.781781928641!2d73.12596201129458!3d19.244295781920066!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7955d3fcde907%3A0x2a943389b6bbf87c!2sDr%20Akankshas!5e1!3m2!1sen!2sin!4v1773406036880!5m2!1sen!2sin" 
-                width="100%" 
-                height="450" 
-                style="border:0; display: block; filter: grayscale(0.2) contrast(1.1);" 
-                allowfullscreen="" 
-                loading="lazy" 
-                referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
         </div>
     </div>
 </section>
 
 <footer class="bg-[#0a1128] text-white py-24">
-    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-16 text-center md:text-left">
+    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 text-center md:text-left">
         <div>
-            <h3 class="font-bold text-xl mb-8 uppercase text-pink-500">Address</h3>
+            <h3 class="font-bold text-xl mb-8 uppercase text-electric">Location</h3>
             <p class="font-bold text-sm mb-4 leading-relaxed">
-                Vishwanath Plaza, 1st Floor, Opp. Sun Soman Square, Agra Road, Kalyan (W) - 421301
+                1st Floor, JMB House, Opp. MICL Aaradhya One Earth, Naidu Colony, Pant Nagar, Ghatkopar (E) - 400075
             </p>
-            <a href="tel:9167453795" class="text-2xl font-black">+91 91674 53795</a>
+            <a href="tel:9167453795" class="text-2xl font-black text-white">+91 91674 53795</a>
         </div>
         <div>
-            <h3 class="font-bold text-xl mb-8 uppercase text-pink-500">Clinic Hours</h3>
+            <h3 class="font-bold text-xl mb-8 uppercase text-electric">Clinic Timing</h3>
             <p>Mon - Sat: 11 AM - 9 PM</p>
-            <p class="text-pink-500 font-bold mt-2">Sun: By Appointment Only</p>
-        </div>
-        <div>
-            <h3 class="font-bold text-xl mb-8 uppercase text-pink-500">Connect</h3>
-            <div class="flex justify-center md:justify-start gap-6 mt-6 text-2xl">
-                <i class="fab fa-instagram hover:text-pink-500 transition cursor-pointer"></i>
-                <i class="fab fa-facebook-f hover:text-pink-500 transition cursor-pointer"></i>
-            </div>
-            <p class="mt-8 text-[10px] text-slate-500">drakskinnovation@gmail.com</p>
+            <p class="text-electric font-bold mt-2">Sun: By Appointment Only</p>
         </div>
     </div>
 </footer>
 
 <script>
-    const API_URL = "https://script.google.com/macros/s/AKfycbyrtDk0ZrHCLN5z8GcA4L1jvGpmXD0GFPAraskh2uZNVoMZnUNodkD0sZwbn1G4K8ucEQ/exec";
+    // Copy/Paste your specific API_URL from the Skinnovation script here
+    const API_URL = "YOUR_APPS_SCRIPT_URL_HERE"; 
 
     const dateSelect = document.getElementById('doctor-date');
-    const timeSelect = document.getElementById('doctor-time');
     const bookingForm = document.getElementById('clinic-booking-form');
     const submitBtn = document.getElementById('submit-btn');
     const menuBtn = document.getElementById('menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
     const menuIcon = document.getElementById('menu-icon');
 
-    let clinicSchedule = {};
-
-    // MOBILE MENU LOGIC
-    menuBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
+    // Menu Logic
+    menuBtn.addEventListener('click', () => {
         mobileMenu.classList.toggle('active');
-        if (mobileMenu.classList.contains('active')) {
-            menuIcon.classList.replace('fa-bars', 'fa-times');
-        } else {
-            menuIcon.classList.replace('fa-times', 'fa-bars');
-        }
+        menuIcon.classList.toggle('fa-bars');
+        menuIcon.classList.toggle('fa-times');
     });
 
-    document.addEventListener('click', (e) => {
-        if (!mobileMenu.contains(e.target) && !menuBtn.contains(e.target)) {
-            mobileMenu.classList.remove('active');
-            menuIcon.classList.replace('fa-times', 'fa-bars');
-        }
-    });
-
-    const months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
-
-    function formatAnyDate(dateInput) {
-        if (!dateInput) return "";
-        const d = new Date(dateInput);
-        if (!isNaN(d)) {
-            return `${String(d.getDate()).padStart(2, '0')} ${months[d.getMonth()]} ${d.getFullYear()}`;
-        }
-        return dateInput.toUpperCase();
-    }
-
-    function formatTime(timeInput) {
-        if (!timeInput) return "";
-        if (timeInput.toString().includes('1899') || timeInput.toString().includes('T')) {
-            const d = new Date(timeInput);
-            if (!isNaN(d)) {
-                return d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
-            }
-        }
-        return timeInput.toString().toUpperCase();
-    }
-
-    /* --- UPDATED FILTERING LOGIC --- */
-    async function loadClinicSchedule() {
-        try {
-            dateSelect.innerHTML = '<option value="">LOADING...</option>';
-            const response = await fetch(API_URL);
-            const rawData = await response.json();
-            
-            // Handle if rawData is an object {slots:[], settings:{}} or just an array []
-            const data = Array.isArray(rawData) ? rawData : rawData.slots;
-            const settings = rawData.settings || { mode: '7' }; // Default fallback
-
-            clinicSchedule = {};
-            const today = new Date();
-            today.setHours(0,0,0,0);
-            
-            // Define Visibility Window
-            let startDate = today;
-            let endDate = new Date();
-
-            if (settings.mode === '7') {
-                endDate.setDate(today.getDate() + 7);
-            } else if (settings.mode === '14') {
-                endDate.setDate(today.getDate() + 14);
-            } else if (settings.mode === 'custom') {
-                startDate = new Date(settings.start);
-                endDate = new Date(settings.end);
-            }
-
-            data.forEach(item => {
-                const slotDateObj = new Date(item.date);
-                slotDateObj.setHours(0,0,0,0);
-
-                // Apply the Booking Window Filter
-                if (slotDateObj >= startDate && slotDateObj <= endDate) {
-                    const cleanDate = formatAnyDate(item.date);
-                    const cleanTime = formatTime(item.time); 
-                    if (!clinicSchedule[cleanDate]) clinicSchedule[cleanDate] = [];
-                    clinicSchedule[cleanDate].push({ time: cleanTime, status: item.status || "available" });
-                }
-            });
-
-            dateSelect.innerHTML = '<option value="">CHOOSE DATE</option>';
-            const datesFound = Object.keys(clinicSchedule);
-            
-            if (datesFound.length === 0) {
-                dateSelect.innerHTML = '<option value="">NO SLOTS AVAILABLE</option>';
-            } else {
-                datesFound.forEach(date => {
-                    const opt = document.createElement('option');
-                    opt.value = date; opt.textContent = date; dateSelect.appendChild(opt);
-                });
-            }
-        } catch (e) {
-            console.error(e);
-            dateSelect.innerHTML = '<option value="">OFFLINE</option>';
+    // Date Logic (Simple version for demo - link your actual loadClinicSchedule() function here)
+    const populateDates = () => {
+        for(let i=0; i<7; i++) {
+            let d = new Date();
+            d.setDate(d.getDate() + i);
+            let opt = document.createElement('option');
+            opt.value = d.toDateString();
+            opt.textContent = d.toDateString().toUpperCase();
+            dateSelect.appendChild(opt);
         }
     }
+    populateDates();
 
-    dateSelect.addEventListener('change', (e) => {
-        const selectedDate = e.target.value;
-        timeSelect.innerHTML = '<option value="">SELECT TIME</option>';
-        if (selectedDate && clinicSchedule[selectedDate]) {
-            timeSelect.disabled = false;
-            clinicSchedule[selectedDate].forEach(slot => {
-                const opt = document.createElement('option');
-                opt.value = slot.time;
-                if (slot.status.toLowerCase() === 'booked') {
-                    opt.textContent = `${slot.time} (BOOKED)`; opt.disabled = true;
-                } else { opt.textContent = slot.time; }
-                timeSelect.appendChild(opt);
-            });
-        } else { timeSelect.disabled = true; }
-    });
-
+    // Form Submit Logic
     bookingForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         submitBtn.disabled = true;
-        submitBtn.textContent = "SENDING...";
-        const formData = new FormData(bookingForm);
-        const params = new URLSearchParams(formData).toString();
-        try {
-            await fetch(`${API_URL}?${params}`, { method: 'POST', mode: 'no-cors' });
+        submitBtn.textContent = "PROCESSING...";
+        
+        // This simulates the fetch to your Google Script
+        setTimeout(() => {
             document.getElementById('booking-form-wrapper').style.display = 'none';
             document.getElementById('thank-you-page').style.display = 'block';
-        } catch (err) {
-            document.getElementById('booking-form-wrapper').style.display = 'none';
-            document.getElementById('thank-you-page').style.display = 'block';
-        }
+        }, 1500);
     });
-
-    loadClinicSchedule();
 </script>
 </body>
 </html>
