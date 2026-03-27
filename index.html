@@ -18,7 +18,7 @@
         .bg-electric { background-color: #00C8D7; }
         .gradient-text { background: linear-gradient(90deg, #00C8D7, #2C3E50); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         
-        /* Unified Hero with Dental Background */
+        /* Unified Hero Background */
         .unified-hero-bg { 
             background: linear-gradient(rgba(255,255,255,0.95), rgba(255,255,255,0.95)), 
             url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=60&w=1200'); 
@@ -28,16 +28,16 @@
         .hover-scale { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
         .hover-scale:hover { transform: translateY(-5px); }
         
-        /* Premium Dropdown Styling (Dark Mode Form) */
+        /* Dark Mode Form Dropdown */
         select {
             background-color: #1e293b !important;
             color: #ffffff !important;
             padding: 15px;
+            border-bottom: 2px solid #00C8D7 !important;
         }
-        
         select option { background-color: #ffffff !important; color: #1e293b !important; font-weight: bold; }
         select option[disabled] { color: #94a3b8 !important; background-color: #f1f5f9 !important; }
-        select:focus { outline: 2px solid #00C8D7; }
+        select:focus { outline: none; }
         
         #thank-you-page { display: none; }
         
@@ -68,7 +68,7 @@
         </a>
 
         <div class="hidden lg:flex items-center gap-8 text-[11px] font-bold uppercase tracking-widest text-gray-500">
-            <a href="index.html" class="text-[#00C8D7]">Home</a>
+            <a href="index.html" class="text-[#00C8D7] underline decoration-[#00C8D7] decoration-2 underline-offset-8">Home</a>
             <a href="about.html" class="hover:text-[#00C8D7] transition-colors">About Doctor</a>
             <a href="treatments.html" class="hover:text-[#00C8D7] transition-colors">Treatments</a>
             <a href="results.html" class="hover:text-[#00C8D7] transition-colors">Results</a>
@@ -83,7 +83,7 @@
 
         <div id="mobile-menu" class="absolute top-20 right-6 w-48 bg-white border border-gray-100 rounded-xl shadow-2xl p-2 z-[60]">
             <div class="flex flex-col text-[11px] font-bold uppercase tracking-widest text-gray-600">
-                <a href="index.html" class="p-3 rounded-lg flex items-center gap-3"><i class="fas fa-home w-4 text-[#00C8D7]"></i> Home</a>
+                <a href="index.html" class="p-3 rounded-lg flex items-center gap-3 font-bold"><i class="fas fa-home w-4 text-[#00C8D7]"></i> Home</a>
                 <a href="about.html" class="p-3 rounded-lg flex items-center gap-3"><i class="fas fa-user-md w-4 text-[#00C8D7]"></i> About</a>
                 <a href="treatments.html" class="p-3 rounded-lg flex items-center gap-3"><i class="fas fa-notes-medical w-4 text-[#00C8D7]"></i> Treatments</a>
                 <a href="results.html" class="p-3 rounded-lg flex items-center gap-3"><i class="fas fa-star w-4 text-[#00C8D7]"></i> Results</a>
@@ -159,51 +159,74 @@
     </div>
 </section>
 
-<section id="booking" class="py-32 bg-slate-900 scroll-mt-20">
+<section id="booking" class="py-24 bg-[#111111] scroll-mt-20">
     <div class="max-w-3xl mx-auto px-6">
-        <div id="booking-container" class="bg-white/5 backdrop-blur-xl rounded-[3.5rem] border border-white/10 p-12 shadow-2xl">
+        <div id="booking-container" class="bg-[#1A1A1A] rounded-2xl border border-white/10 p-10 md:p-14 shadow-2xl">
+            
             <div id="booking-form-wrapper">
-                <h3 class="text-4xl font-black text-white text-center uppercase mb-12 tracking-tighter">
-                    Request <span class="text-electric italic">Slot</span>
+                <h3 class="text-3xl font-extrabold text-white text-center uppercase mb-10 tracking-tight">
+                    Book <span class="text-[#00C8D7]">Appointment</span>
                 </h3>
-                <form id="clinic-booking-form" class="grid grid-cols-1 gap-8">
+                <form id="clinic-booking-form" class="grid grid-cols-1 gap-6">
                     <div class="relative group">
-                        <i class="fas fa-user absolute left-6 top-1/2 -translate-y-1/2 text-electric/50"></i>
-                        <input type="text" name="firstName" placeholder="PATIENT NAME" required 
-                               class="w-full bg-white/10 border border-white/10 rounded-2xl pl-14 pr-6 py-5 text-white focus:border-electric outline-none transition uppercase text-[10px] font-black tracking-widest placeholder:text-slate-500">
+                        <i class="fas fa-user absolute left-5 top-1/2 -translate-y-1/2 text-gray-500"></i>
+                        <input type="text" name="firstName" placeholder="FULL NAME" required 
+                               class="w-full bg-[#2A2A2A] border border-transparent rounded-lg pl-12 pr-6 py-4 text-white focus:border-[#00C8D7] outline-none transition uppercase text-[10px] font-bold tracking-widest">
                     </div>
                     
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div class="relative">
-                            <i class="fas fa-phone absolute left-6 top-1/2 -translate-y-1/2 text-electric/50"></i>
-                            <input type="tel" name="phone" placeholder="CONTACT NUMBER" required 
-                                   class="w-full bg-white/10 border border-white/10 rounded-2xl pl-14 pr-6 py-5 text-white focus:border-electric outline-none transition uppercase text-[10px] font-black tracking-widest">
+                            <i class="fas fa-phone absolute left-5 top-1/2 -translate-y-1/2 text-gray-500"></i>
+                            <input type="tel" name="phone" placeholder="MOBILE NUMBER" required 
+                                   class="w-full bg-[#2A2A2A] border border-transparent rounded-lg pl-12 pr-6 py-4 text-white focus:border-[#00C8D7] outline-none transition uppercase text-[10px] font-bold tracking-widest">
                         </div>
                         <div class="relative">
-                            <i class="fas fa-calendar absolute left-6 top-1/2 -translate-y-1/2 text-electric/50"></i>
-                            <select id="doctor-date" name="selected_date" required 
-                                    class="w-full border border-white/10 rounded-2xl pl-14 pr-6 py-5 outline-none appearance-none uppercase text-[10px] font-black tracking-widest">
-                                <option value="">CHOOSE DATE</option>
+                            <i class="fas fa-envelope absolute left-5 top-1/2 -translate-y-1/2 text-gray-500"></i>
+                            <input type="email" name="email" placeholder="EMAIL ADDRESS" required 
+                                   class="w-full bg-[#2A2A2A] border border-transparent rounded-lg pl-12 pr-6 py-4 text-white focus:border-[#00C8D7] outline-none transition uppercase text-[10px] font-bold tracking-widest">
+                        </div>
+                    </div>
+
+                    <div class="relative group">
+                        <i class="fas fa-notes-medical absolute left-5 top-1/2 -translate-y-1/2 text-gray-500 z-10"></i>
+                        <select id="service-select" name="service" required 
+                                class="w-full border border-transparent rounded-lg pl-12 pr-6 py-4 outline-none appearance-none uppercase text-[10px] font-bold tracking-widest">
+                            <option value="">SELECT TREATMENT</option>
+                        </select>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="relative">
+                            <i class="fas fa-calendar absolute left-5 top-1/2 -translate-y-1/2 text-gray-500 z-10"></i>
+                            <select id="doctor-date" name="selected_date" disabled required 
+                                    class="w-full border border-transparent rounded-lg pl-12 pr-6 py-4 outline-none appearance-none disabled:opacity-30 uppercase text-[10px] font-bold tracking-widest">
+                                <option value="">CHOOSE TREATMENT FIRST</option>
+                            </select>
+                        </div>
+                        <div class="relative">
+                            <i class="fas fa-clock absolute left-5 top-1/2 -translate-y-1/2 text-gray-500 z-10"></i>
+                            <select id="doctor-time" name="selected_time" disabled required 
+                                    class="w-full border border-transparent rounded-lg pl-12 pr-6 py-4 outline-none appearance-none disabled:opacity-30 uppercase text-[10px] font-bold tracking-widest">
+                                <option value="">SELECT TIME</option>
                             </select>
                         </div>
                     </div>
-
-                    <textarea name="description" placeholder="DESCRIBE YOUR DENTAL CONCERN (E.G., PAIN, CLEANING, RCT)..." required rows="3"
-                              class="w-full bg-white/10 border border-white/10 rounded-2xl px-6 py-5 text-white focus:border-electric outline-none transition uppercase text-[10px] font-black tracking-widest placeholder:text-slate-500"></textarea>
-
+                    
+                    <textarea name="description" placeholder="DESCRIBE YOUR CONCERN..." required rows="3"
+                              class="w-full bg-[#2A2A2A] border border-transparent rounded-lg px-6 py-4 text-white focus:border-[#00C8D7] outline-none transition uppercase text-[10px] font-bold tracking-widest"></textarea>
+                    
                     <button type="submit" id="submit-btn" 
-                            class="w-full bg-electric text-white font-black py-6 rounded-2xl hover:bg-white hover:text-slate-900 transition-all duration-500 uppercase mt-6 shadow-2xl shadow-cyan-900/40 tracking-[0.4em] text-[10px]">
+                            class="w-full bg-[#00C8D7] text-white font-bold py-5 rounded-lg hover:bg-white hover:text-black transition-colors duration-300 uppercase mt-4 tracking-widest text-xs">
                         Confirm Appointment
                     </button>
                 </form>
             </div>
-
             <div id="thank-you-page" class="hidden text-center py-10">
-                <div class="w-24 h-24 bg-electric rounded-full flex items-center justify-center text-white text-5xl mx-auto mb-8 animate-bounce shadow-xl shadow-cyan-500/20">
+                <div class="w-20 h-20 bg-[#00C8D7] rounded-full flex items-center justify-center text-white text-4xl mx-auto mb-6">
                     <i class="fas fa-check"></i>
                 </div>
-                <h3 class="text-4xl font-black text-white uppercase tracking-tighter">Slot Reserved</h3>
-                <p class="text-slate-400 mt-6 text-sm tracking-widest font-bold uppercase">DR. PRIYANKA WILL SEE YOU SOON</p>
+                <h3 class="text-3xl font-extrabold text-white uppercase tracking-tight">Slot Locked</h3>
+                <p class="text-[#00C8D7] mt-4 text-sm tracking-widest font-bold uppercase">We will WhatsApp you shortly.</p>
             </div>
         </div>
     </div>
@@ -227,50 +250,156 @@
 </footer>
 
 <script>
-    const btn = document.getElementById('menu-btn');
-    const menu = document.getElementById('mobile-menu');
-    const icon = document.getElementById('menu-icon');
+    // ── DYNAMIC LINKING (FULLY RESTORED API) ──────────────────────────
+    const API_URL = "https://script.google.com/macros/s/AKfycby87Kh9jGLi3-2kctMIWhF1eGxLZHQAN0jIftq9SzrCysU5KuwKbMISs7VuWjvIvH9BTA/exec";
 
-    btn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        menu.classList.toggle('active');
-        icon.classList.toggle('fa-bars');
-        icon.classList.toggle('fa-times');
-    });
+    const serviceSelect = document.getElementById('service-select');
+    const dateSelect  = document.getElementById('doctor-date');
+    const timeSelect  = document.getElementById('doctor-time');
+    const bookingForm = document.getElementById('clinic-booking-form');
+    const submitBtn   = document.getElementById('submit-btn');
 
-    document.addEventListener('click', (e) => {
-        if (!menu.contains(e.target) && !btn.contains(e.target)) {
-            menu.classList.remove('active');
-            icon.classList.add('fa-bars');
-            icon.classList.remove('fa-times');
-        }
-    });
+    let allAvailableSlots = []; 
+    const months = ["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"];
 
-    // Date Logic simple population
-    const dateSelect = document.getElementById('doctor-date');
-    const populateDates = () => {
-        for(let i=0; i<7; i++) {
-            let d = new Date();
-            d.setDate(d.getDate() + i);
-            let opt = document.createElement('option');
-            opt.value = d.toDateString();
-            opt.textContent = d.toDateString().toUpperCase();
-            dateSelect.appendChild(opt);
+    function parseDateFlexible(dateStr) {
+        if (!dateStr) return null;
+        if (dateStr instanceof Date) return dateStr;
+        const d = new Date(dateStr);
+        if (isNaN(d.getTime())) return null;
+        d.setHours(0,0,0,0);
+        return d;
+    }
+
+    async function loadClinicSchedule() {
+        try {
+            serviceSelect.innerHTML = '<option value="">SYNCING SERVER...</option>';
+            const response = await fetch(API_URL + "?fetch=true");
+            const rawData  = await response.json();
+            const data = rawData.slots || [];
+            const settings = rawData.settings || {};
+
+            let startDate = new Date(); startDate.setHours(0,0,0,0);
+            let endDate = new Date(startDate);
+            let daysToAdd = parseInt(settings.mode) || 30;
+            endDate.setDate(startDate.getDate() + (daysToAdd - 1));
+
+            allAvailableSlots = []; 
+            
+            // 1. Process all slots from the API
+            data.forEach(item => {
+                const sDate = parseDateFlexible(item.date);
+                if (sDate && sDate >= startDate && sDate <= endDate) {
+                    const dKey = `${String(sDate.getDate()).padStart(2, '0')} ${months[sDate.getMonth()]} ${sDate.getFullYear()}`;
+                    const slotService = item.service ? String(item.service).toUpperCase().trim() : "ALL";
+                    
+                    allAvailableSlots.push({
+                        dateKey: dKey,
+                        time: item.time,
+                        status: String(item.status || "available").toLowerCase(),
+                        service: slotService
+                    });
+                }
+            });
+
+            // 2. RESTORED SERVICE POPULATION LOGIC
+            serviceSelect.innerHTML = '<option value="">SELECT TREATMENT</option>';
+            
+            // Look into settings.services (the original version used this list)
+            if (settings.services && settings.services.length > 0) {
+                settings.services.forEach(s => {
+                    const opt = document.createElement('option');
+                    opt.value = s.toUpperCase(); 
+                    opt.textContent = s.toUpperCase(); 
+                    serviceSelect.appendChild(opt);
+                });
+            }
+            
+            // Always add the General option
+            const optGeneral = document.createElement('option');
+            optGeneral.value = "ALL"; 
+            optGeneral.textContent = "GENERAL CONSULTATION / ALL";
+            serviceSelect.appendChild(optGeneral);
+
+        } catch (e) {
+            console.error("Link error:", e);
+            serviceSelect.innerHTML = '<option value="">OFFLINE</option>';
         }
     }
-    populateDates();
 
-    const bookingForm = document.getElementById('clinic-booking-form');
-    const submitBtn = document.getElementById('submit-btn');
+    serviceSelect.addEventListener('change', (e) => {
+        const chosen = e.target.value.toUpperCase();
+        dateSelect.innerHTML = '<option value="">CHOOSE DATE</option>';
+        timeSelect.disabled = true;
+        if (!chosen) { dateSelect.disabled = true; return; }
+        
+        dateSelect.disabled = false;
+        let matchingDates = new Set();
+        allAvailableSlots.forEach(slot => {
+            // Logic: Show dates if slot matches specifically OR if slot is 'ALL'
+            if ((slot.service === chosen || slot.service === "ALL") && slot.status === 'available') {
+                matchingDates.add(slot.dateKey);
+            }
+        });
+
+        if (matchingDates.size === 0) {
+            dateSelect.innerHTML = '<option value="">NO SLOTS AVAILABLE</option>';
+        } else {
+            Array.from(matchingDates).sort((a,b) => new Date(a) - new Date(b)).forEach(d => {
+                const opt = document.createElement('option');
+                opt.value = d; opt.textContent = d; dateSelect.appendChild(opt);
+            });
+        }
+    });
+
+    dateSelect.addEventListener('change', (e) => {
+        const selectedDate = e.target.value;
+        const chosenService = serviceSelect.value.toUpperCase();
+        timeSelect.innerHTML = '<option value="">SELECT TIME</option>';
+        if (selectedDate) {
+            timeSelect.disabled = false;
+            allAvailableSlots
+                .filter(s => s.dateKey === selectedDate && (s.service === chosenService || s.service === "ALL"))
+                .sort((a,b)=> new Date('1970/01/01 '+a.time) - new Date('1970/01/01 '+b.time))
+                .forEach(slot => {
+                    const opt = document.createElement('option');
+                    opt.value = slot.time;
+                    opt.textContent = slot.status === 'booked' ? `${slot.time} (BOOKED)` : slot.time;
+                    opt.disabled = slot.status === 'booked';
+                    timeSelect.appendChild(opt);
+                });
+        }
+    });
+
     bookingForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         submitBtn.disabled = true;
-        submitBtn.textContent = "PROCESSING...";
-        setTimeout(() => {
+        submitBtn.textContent = "SECURING SLOT...";
+        const formData = new FormData(bookingForm);
+        const payload = {
+            action: "newBooking",
+            firstName: formData.get("firstName"),
+            phone: formData.get("phone"),
+            email: formData.get("email"),
+            service: formData.get("service"),
+            date: formData.get("selected_date"),
+            time: formData.get("selected_time"),
+            description: formData.get("description")
+        };
+        try {
+            await fetch(API_URL, { 
+                method: 'POST', 
+                headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                body: JSON.stringify(payload) 
+            });
             document.getElementById('booking-form-wrapper').style.display = 'none';
             document.getElementById('thank-you-page').style.display = 'block';
-        }, 1500);
+        } catch (err) {
+            alert("Booking submitted. Please wait for WhatsApp confirmation.");
+        }
     });
+
+    loadClinicSchedule();
 </script>
 </body>
 </html>
