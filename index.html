@@ -52,40 +52,41 @@
 </head>
 <body class="bg-slate-50 font-sans text-slate-900 antialiased">
 
-<nav class="bg-white/95 backdrop-blur-md border-b border-slate-100 sticky top-0 z-50 shadow-sm">
-    <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between relative">
+<nav class="bg-white/95 backdrop-blur-md border-b border-gray-100 sticky top-0 z-50 shadow-sm">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between relative">
+        <a href="index.html" class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded-full overflow-hidden border-2 border-white shadow-sm bg-white">
+                <img src="images (1).png" alt="32 Watts Logo" class="w-full h-full object-contain scale-125">
+            </div>
+            <div class="flex flex-col">
+                <span class="font-extrabold text-xl tracking-tight uppercase text-gray-900 leading-none">
+                    32 Watts <span class="text-[#00C8D7]">Dental</span>
+                </span>
+            </div>
+        </a>
+
+        <div class="hidden lg:flex items-center gap-8 text-[11px] font-bold uppercase tracking-widest text-gray-500">
+            <a href="index.html" class="text-[#00C8D7]">Home</a>
+            <a href="about.html" class="hover:text-[#00C8D7] transition-colors">About Stylist</a>
+            <a href="treatments.html" class="hover:text-[#00C8D7] transition-colors">Services</a>
+            <a href="results.html" class="hover:text-[#00C8D7] transition-colors">Client Stories</a>
+        </div>
+
         <div class="flex items-center gap-3">
-            <a href="#" class="flex items-center gap-3">
-                <div class="w-10 h-10 bg-electric rounded-xl flex items-center justify-center text-white shadow-lg shadow-cyan-200">
-                    <i class="fas fa-tooth text-xl"></i>
-                </div>
-                <div class="flex flex-col">
-                    <span class="font-black text-xl tracking-tighter uppercase text-slate-900 leading-none">
-                        32 Watts <span class="text-electric italic">Dental</span>
-                    </span>
-                    <span class="text-[9px] font-bold tracking-[0.3em] text-slate-400 uppercase mt-1">Ghatkopar East</span>
-                </div>
-            </a>
+            <a href="#booking" class="bg-black text-white px-6 py-2.5 rounded-md font-bold hover:bg-[#00C8D7] transition-colors text-xs uppercase tracking-widest shadow-lg">Book Slot</a>
+            <button id="menu-btn" class="lg:hidden text-gray-900 focus:outline-none p-2 bg-gray-50 rounded-md">
+                <i class="fas fa-bars text-xl" id="menu-icon"></i>
+            </button>
         </div>
 
-        <div class="hidden lg:flex items-center gap-8 text-[11px] font-black uppercase tracking-widest text-slate-500">
-            <a href="#" class="hover:text-electric transition-colors">Home</a>
-            <a href="#about" class="hover:text-electric transition-colors">About</a>
-            <a href="#treatments" class="hover:text-electric transition-colors">Treatments</a>
-            <a href="#booking" class="bg-electric text-white px-5 py-2.5 rounded-full font-bold shadow-lg shadow-cyan-100 text-xs transition-all">Book Now</a>
-        </div>
-
-        <button id="menu-btn" class="lg:hidden text-slate-900 p-2 bg-slate-50 rounded-lg border border-slate-200">
-            <i class="fas fa-bars text-xl" id="menu-icon"></i>
-        </button>
-
-        <div id="mobile-menu" class="absolute top-20 right-6 w-48 bg-white border border-slate-100 rounded-2xl shadow-2xl p-2 z-[60]">
-            <div class="flex flex-col text-[11px] font-black uppercase tracking-widest text-slate-600">
-                <a href="#" class="p-3 rounded-xl flex items-center gap-3"><i class="fas fa-home w-4"></i> Home</a>
-                <a href="#about" class="p-3 rounded-xl flex items-center gap-3"><i class="fas fa-user-md w-4"></i> About</a>
-                <a href="#treatments" class="p-3 rounded-xl flex items-center gap-3"><i class="fas fa-notes-medical w-4"></i> Services</a>
-                <div class="h-[1px] bg-slate-100 my-1"></div>
-                <a href="tel:9167453795" class="text-electric p-3 flex items-center gap-3"><i class="fas fa-phone-alt w-4"></i> Call</a>
+        <div id="mobile-menu" class="absolute top-20 right-6 w-48 bg-white border border-gray-100 rounded-xl shadow-2xl p-2 z-[60]">
+            <div class="flex flex-col text-[11px] font-bold uppercase tracking-widest text-gray-600">
+                <a href="index.html" class="hover:bg-gray-50 text-[#00C8D7] p-3 rounded-lg flex items-center gap-3"><i class="fas fa-home w-4"></i> Home</a>
+                <a href="about.html" class="hover:bg-gray-50 hover:text-[#00C8D7] p-3 rounded-lg flex items-center gap-3"><i class="fas fa-user-md w-4"></i> About</a>
+                <a href="treatments.html" class="hover:bg-gray-50 hover:text-[#00C8D7] p-3 rounded-lg flex items-center gap-3"><i class="fas fa-notes-medical w-4"></i> Services</a>
+                <a href="results.html" class="hover:bg-gray-50 hover:text-[#00C8D7] p-3 rounded-lg flex items-center gap-3"><i class="fas fa-star w-4"></i> Stories</a>
+                <div class="h-[1px] bg-gray-100 my-1"></div>
+                <a href="#booking" class="text-[#00C8D7] p-3 flex items-center gap-3"><i class="fas fa-calendar-check w-4"></i> Book Now</a>
             </div>
         </div>
     </div>
