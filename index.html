@@ -130,39 +130,9 @@
     </div>
 </header>
 
-<section id="treatments" class="py-32 bg-white scroll-mt-20">
-    <div class="max-w-6xl mx-auto px-6">
-        <div class="text-center mb-20">
-            <h2 class="text-4xl font-black text-slate-900 uppercase tracking-tight">Advanced Multi-Specialty Dental Center</h2>
-            <p class="text-slate-400 mt-2">Powering smiles with compassion and high-tech care</p>
-        </div>
-        <div class="grid md:grid-cols-3 gap-10">
-            <div class="p-10 rounded-[3rem] bg-slate-50 border border-slate-100 hover-scale">
-                <div class="w-12 h-12 bg-cyan-100 text-electric rounded-xl flex items-center justify-center mb-6"><i class="fas fa-microscope"></i></div>
-                <h4 class="font-black text-xl mb-4 uppercase">Painless RCT</h4>
-                <p class="text-slate-500 text-sm leading-relaxed mb-6">Expert root canal treatments using rotary endodontics for a faster, zero-pain experience.</p>
-                <a href="#booking" class="text-electric font-bold text-xs uppercase tracking-widest hover:underline">Request Slot →</a>
-            </div>
-            <div class="p-10 rounded-[3rem] bg-slate-50 border border-slate-100 hover-scale">
-                <div class="w-12 h-12 bg-cyan-100 text-electric rounded-xl flex items-center justify-center mb-6"><i class="fas fa-magic"></i></div>
-                <h4 class="font-black text-xl mb-4 uppercase">Smile Makeover</h4>
-                <p class="text-slate-500 text-sm leading-relaxed mb-6">Veneers, laminates, and whitening procedures designed for natural, invisible perfection.</p>
-                <a href="#booking" class="text-electric font-bold text-xs uppercase tracking-widest hover:underline">Request Slot →</a>
-            </div>
-            <div class="p-10 rounded-[3rem] bg-slate-50 border border-slate-100 hover-scale">
-                <div class="w-12 h-12 bg-cyan-100 text-electric rounded-xl flex items-center justify-center mb-6"><i class="fas fa-bolt"></i></div>
-                <h4 class="font-black text-xl mb-4 uppercase">Dental Implants</h4>
-                <p class="text-slate-500 text-sm leading-relaxed mb-6">Premium implantology solutions to restore functionality and aesthetic confidence.</p>
-                <a href="#booking" class="text-electric font-bold text-xs uppercase tracking-widest hover:underline">Request Slot →</a>
-            </div>
-        </div>
-    </div>
-</section>
-
 <section id="booking" class="py-24 bg-[#111111] scroll-mt-20">
     <div class="max-w-3xl mx-auto px-6">
         <div id="booking-container" class="bg-[#1A1A1A] rounded-2xl border border-white/10 p-10 md:p-14 shadow-2xl">
-            
             <div id="booking-form-wrapper">
                 <h3 class="text-3xl font-extrabold text-white text-center uppercase mb-10 tracking-tight">
                     Book <span class="text-[#00C8D7]">Appointment</span>
@@ -232,7 +202,7 @@
     </div>
 </section>
 
-<footer class="bg-[#0a1128] text-white py-24">
+<footer class="bg-[#0a1128] text-white py-24 border-t border-white/5">
     <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 text-center md:text-left">
         <div>
             <h3 class="font-bold text-xl mb-8 uppercase text-electric">Location</h3>
@@ -250,21 +220,39 @@
 </footer>
 
 <script>
-    // ── DYNAMIC LINKING (FULLY RESTORED API) ──────────────────────────
-    const API_URL = "https://script.google.com/macros/s/AKfycby87Kh9jGLi3-2kctMIWhF1eGxLZHQAN0jIftq9SzrCysU5KuwKbMISs7VuWjvIvH9BTA/exec";
+    // NAVIGATION LOGIC
+    const btn = document.getElementById('menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    const icon = document.getElementById('menu-icon');
 
+    btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menu.classList.toggle('active');
+        icon.classList.toggle('fa-bars');
+        icon.classList.toggle('fa-times');
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!menu.contains(e.target) && !btn.contains(e.target)) {
+            menu.classList.remove('active');
+            icon.classList.add('fa-bars');
+            icon.classList.remove('fa-times');
+        }
+    });
+
+    // API & BOOKING LOGIC
+    const API_URL = "https://script.google.com/macros/s/AKfycby87Kh9jGLi3-2kctMIWhF1eGxLZHQAN0jIftq9SzrCysU5KuwKbMISs7VuWjvIvH9BTA/exec";
     const serviceSelect = document.getElementById('service-select');
-    const dateSelect  = document.getElementById('doctor-date');
-    const timeSelect  = document.getElementById('doctor-time');
+    const dateSelect = document.getElementById('doctor-date');
+    const timeSelect = document.getElementById('doctor-time');
     const bookingForm = document.getElementById('clinic-booking-form');
-    const submitBtn   = document.getElementById('submit-btn');
+    const submitBtn = document.getElementById('submit-btn');
 
     let allAvailableSlots = []; 
     const months = ["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"];
 
     function parseDateFlexible(dateStr) {
         if (!dateStr) return null;
-        if (dateStr instanceof Date) return dateStr;
         const d = new Date(dateStr);
         if (isNaN(d.getTime())) return null;
         d.setHours(0,0,0,0);
@@ -273,9 +261,9 @@
 
     async function loadClinicSchedule() {
         try {
-            serviceSelect.innerHTML = '<option value="">SYNCING SERVER...</option>';
+            serviceSelect.innerHTML = '<option value="">SYNCING...</option>';
             const response = await fetch(API_URL + "?fetch=true");
-            const rawData  = await response.json();
+            const rawData = await response.json();
             const data = rawData.slots || [];
             const settings = rawData.settings || {};
 
@@ -285,46 +273,29 @@
             endDate.setDate(startDate.getDate() + (daysToAdd - 1));
 
             allAvailableSlots = []; 
-            
-            // 1. Process all slots from the API
             data.forEach(item => {
                 const sDate = parseDateFlexible(item.date);
                 if (sDate && sDate >= startDate && sDate <= endDate) {
-                    const dKey = `${String(sDate.getDate()).padStart(2, '0')} ${months[sDate.getMonth()]} ${sDate.getFullYear()}`;
-                    const slotService = item.service ? String(item.service).toUpperCase().trim() : "ALL";
-                    
                     allAvailableSlots.push({
-                        dateKey: dKey,
+                        dateKey: `${String(sDate.getDate()).padStart(2, '0')} ${months[sDate.getMonth()]} ${sDate.getFullYear()}`,
                         time: item.time,
                         status: String(item.status || "available").toLowerCase(),
-                        service: slotService
+                        service: item.service ? String(item.service).toUpperCase().trim() : "ALL"
                     });
                 }
             });
 
-            // 2. RESTORED SERVICE POPULATION LOGIC
             serviceSelect.innerHTML = '<option value="">SELECT TREATMENT</option>';
-            
-            // Look into settings.services (the original version used this list)
-            if (settings.services && settings.services.length > 0) {
+            if (settings.services) {
                 settings.services.forEach(s => {
                     const opt = document.createElement('option');
-                    opt.value = s.toUpperCase(); 
-                    opt.textContent = s.toUpperCase(); 
-                    serviceSelect.appendChild(opt);
+                    opt.value = s.toUpperCase(); opt.textContent = s.toUpperCase(); serviceSelect.appendChild(opt);
                 });
             }
-            
-            // Always add the General option
-            const optGeneral = document.createElement('option');
-            optGeneral.value = "ALL"; 
-            optGeneral.textContent = "GENERAL CONSULTATION / ALL";
-            serviceSelect.appendChild(optGeneral);
+            const optGen = document.createElement('option');
+            optGen.value = "ALL"; optGen.textContent = "GENERAL CONSULTATION"; serviceSelect.appendChild(optGen);
 
-        } catch (e) {
-            console.error("Link error:", e);
-            serviceSelect.innerHTML = '<option value="">OFFLINE</option>';
-        }
+        } catch (e) { console.error(e); }
     }
 
     serviceSelect.addEventListener('change', (e) => {
@@ -332,24 +303,14 @@
         dateSelect.innerHTML = '<option value="">CHOOSE DATE</option>';
         timeSelect.disabled = true;
         if (!chosen) { dateSelect.disabled = true; return; }
-        
         dateSelect.disabled = false;
         let matchingDates = new Set();
         allAvailableSlots.forEach(slot => {
-            // Logic: Show dates if slot matches specifically OR if slot is 'ALL'
-            if ((slot.service === chosen || slot.service === "ALL") && slot.status === 'available') {
-                matchingDates.add(slot.dateKey);
-            }
+            if ((slot.service === chosen || slot.service === "ALL") && slot.status === 'available') matchingDates.add(slot.dateKey);
         });
-
-        if (matchingDates.size === 0) {
-            dateSelect.innerHTML = '<option value="">NO SLOTS AVAILABLE</option>';
-        } else {
-            Array.from(matchingDates).sort((a,b) => new Date(a) - new Date(b)).forEach(d => {
-                const opt = document.createElement('option');
-                opt.value = d; opt.textContent = d; dateSelect.appendChild(opt);
-            });
-        }
+        Array.from(matchingDates).forEach(d => {
+            const opt = document.createElement('option'); opt.value = d; opt.textContent = d; dateSelect.appendChild(opt);
+        });
     });
 
     dateSelect.addEventListener('change', (e) => {
@@ -360,7 +321,6 @@
             timeSelect.disabled = false;
             allAvailableSlots
                 .filter(s => s.dateKey === selectedDate && (s.service === chosenService || s.service === "ALL"))
-                .sort((a,b)=> new Date('1970/01/01 '+a.time) - new Date('1970/01/01 '+b.time))
                 .forEach(slot => {
                     const opt = document.createElement('option');
                     opt.value = slot.time;
@@ -387,16 +347,10 @@
             description: formData.get("description")
         };
         try {
-            await fetch(API_URL, { 
-                method: 'POST', 
-                headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-                body: JSON.stringify(payload) 
-            });
+            await fetch(API_URL, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(payload) });
             document.getElementById('booking-form-wrapper').style.display = 'none';
             document.getElementById('thank-you-page').style.display = 'block';
-        } catch (err) {
-            alert("Booking submitted. Please wait for WhatsApp confirmation.");
-        }
+        } catch (err) { alert("Sent! Check WhatsApp."); }
     });
 
     loadClinicSchedule();
